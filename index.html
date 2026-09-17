@@ -804,13 +804,7 @@
     if (!ok) { sent.textContent = "Controlla i campi evidenziati in rosso."; sent.classList.add("show"); return; }
     var v = function (id) { return document.getElementById(id).value.trim(); };
     var subject = "Richiesta dal sito J@M: " + v("c-servizio") + " (" + v("c-profilo") + ")";
-    var bodyTxt = "Nome: " + v("c-nome") + "
-Email: " + v("c-email") + "
-Telefono: " + v("c-tel") + "
-Sono: " + v("c-profilo") + "
-Mi interessa: " + v("c-servizio") + "
-
-" + (v("c-msg") || "(nessun messaggio)");
+    var bodyTxt = "Nome: " + v("c-nome") + "\nEmail: " + v("c-email") + "\nTelefono: " + v("c-tel") + "\nSono: " + v("c-profilo") + "\nMi interessa: " + v("c-servizio") + "\n\n" + (v("c-msg") || "(nessun messaggio)");
     window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(bodyTxt);
     sent.textContent = "Si apre la tua posta con la richiesta pronta: basta premere Invia. Se non si apre, scrivi a " + CONTACT_EMAIL + " o chiama lo 02 898094.";
     sent.classList.add("show");
