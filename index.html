@@ -4,708 +4,228 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>J@M Passion - Consulenza professionale per imprese e privati</title>
-<meta name="description" content="Un'intera gamma di servizi per la tua casa e il tuo business: telefonia, luce e gas, auto noleggio, efficientamento energetico e servizi web.">
+<meta name="description" content="Un&#x27;intera gamma di servizi per la tua casa e il tuo business: telefonia, luce e gas, auto noleggio, efficientamento energetico e servizi web.">
 <meta name="theme-color" content="#050403">
-<meta property="og:type" content="website">
-<meta property="og:title" content="J@M Passion - Consulenza professionale per imprese e privati">
-<meta property="og:description" content="Un'intera gamma di servizi per la tua casa e il tuo business: telefonia, luce e gas, auto noleggio, efficientamento energetico e servizi web.">
+<meta property="og:type" content="website"><meta property="og:title" content="J@M Passion - Consulenza professionale per imprese e privati"><meta property="og:description" content="Un&#x27;intera gamma di servizi per la tua casa e il tuo business: telefonia, luce e gas, auto noleggio, efficientamento energetico e servizi web."><meta property="og:locale" content="it_IT">
 <meta property="og:image" content="https://sagardelledonne.github.io/jam-sito/assets/isola.webp">
-<meta property="og:locale" content="it_IT">
-<link rel="icon" href="assets/mascotte-mini.webp" type="image/webp">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="/jam-sito/assets/mascotte-mini.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/jam-sito/assets/site.css">
 <style>
-  /* Nero profondo + i rossi di J@M (logo e mascotte). Un solo mondo visivo, dipinto esplicitamente. */
-  :root {
-    --bg: #050403;
-    --bg-2: #0E0B0A;
-    --bg-3: #171210;
-    --paper: #F5F0EC;
-    --muted: #9E938D;
-    --line: rgba(245, 240, 236, 0.10);
-    --red: #D82E00;
-    --jam: #FF2D4A;
-    --ember: #FF6A00;
-    --amber: #FFB300;
-    --focus: #FFB300;
-    --sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color-scheme: dark;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--bg); color: var(--paper); font-family: var(--sans); font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-  img, svg { max-width: 100%; display: block; height: auto; }
-  a { color: inherit; }
-  p { margin: 0; }
-  h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.035em; line-height: 1.02; text-wrap: balance; }
-  h2 { font-size: clamp(2.4rem, 6vw, 5.4rem); }
-  h3 { font-size: 1.45rem; letter-spacing: -0.02em; font-weight: 600; }
-  .eyebrow { font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ember); font-weight: 600; }
-  .lede { color: var(--muted); font-size: clamp(1.1rem, 1.6vw, 1.45rem); line-height: 1.45; letter-spacing: -0.01em; }
-  .wrap { max-width: 1240px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 48px); }
-  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  :focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
-  .grad { background: linear-gradient(92deg, #FF3D1E 0%, #FF6A00 45%, #FFB300 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-
-  /* Bottoni e link */
-  .btn { display: inline-flex; align-items: center; gap: 8px; justify-content: center; padding: 14px 26px; border-radius: 999px; font-weight: 600; font-size: 1rem; text-decoration: none; border: 1px solid transparent; font-family: var(--sans); background: transparent; color: var(--paper); transition: background .2s ease, border-color .2s ease, transform .2s ease, box-shadow .3s ease; white-space: nowrap; cursor: pointer; }
-  .btn svg { width: 18px; height: 18px; flex: none; }
-  .btn-primary { background: var(--paper); color: #0B0806; }
-  .btn-primary:hover { background: #fff; transform: translateY(-1px); box-shadow: 0 14px 40px -14px rgba(255,255,255,.5); }
-  .btn-red { background: var(--red); color: #fff; }
-  .btn-red:hover { background: var(--ember); transform: translateY(-1px); box-shadow: 0 14px 40px -12px rgba(255,106,0,.7); }
-  .btn-outline { border-color: rgba(245,240,236,.28); }
-  .btn-outline:hover { border-color: var(--paper); }
-  .link { text-decoration: none; color: var(--ember); font-weight: 500; display: inline-flex; align-items: center; gap: 4px; }
-  .link:hover { text-decoration: underline; text-underline-offset: 4px; }
-  .link svg { width: 16px; height: 16px; }
-  .spark { position: fixed; width: 5px; height: 5px; border-radius: 50%; pointer-events: none; z-index: 95; }
-
-  /* Header */
-  .top { position: fixed; top: 0; left: 0; right: 0; z-index: 80; padding-top: env(safe-area-inset-top, 0px); background: rgba(5,4,3,.55); backdrop-filter: saturate(180%) blur(18px); -webkit-backdrop-filter: saturate(180%) blur(18px); border-bottom: 1px solid transparent; transition: border-color .3s ease, background .3s ease; }
-  .top.solid { border-color: var(--line); background: rgba(5,4,3,.8); }
-  .top .wrap { display: flex; align-items: center; gap: 30px; height: 64px; }
-  .logo { display: inline-flex; align-items: center; text-decoration: none; }
-  .logo img { height: 44px; width: auto; filter: drop-shadow(0 6px 18px rgba(216,46,0,.35)); transition: transform .4s cubic-bezier(.34,1.56,.64,1); }
-  .logo:hover img { transform: rotate(-4deg) scale(1.06); }
-  .nav { display: flex; gap: 26px; margin-left: 6px; }
-  .nav a { text-decoration: none; font-size: .84rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 600; color: rgba(245,240,236,.78); transition: color .2s ease; }
-  .nav a:hover { color: var(--paper); }
-  .top-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
-  .icon-btn { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; color: var(--paper); background: rgba(245,240,236,.08); text-decoration: none; transition: background .2s ease; }
-  .icon-btn:hover { background: rgba(245,240,236,.18); }
-  .icon-btn svg { width: 18px; height: 18px; }
-  .burger { display: none; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(245,240,236,.08); color: var(--paper); align-items: center; justify-content: center; cursor: pointer; }
-  .burger svg { width: 22px; height: 22px; }
-  .menu { position: fixed; inset: 0; z-index: 85; background: rgba(5,4,3,.97); display: none; padding: calc(90px + env(safe-area-inset-top, 0px)) 28px 40px; }
-  .menu.open { display: grid; align-content: start; gap: 4px; }
-  .menu a { text-decoration: none; font-weight: 700; font-size: clamp(2rem, 8vw, 3.2rem); letter-spacing: -0.04em; padding: 10px 0; border-bottom: 1px solid var(--line); text-transform: uppercase; }
-  .menu .close { position: absolute; top: calc(12px + env(safe-area-inset-top, 0px)); right: 16px; display: inline-flex; }
-
-  /* Hero: il titolo è fatto di particelle */
-  .hero { position: relative; min-height: 100svh; display: grid; align-items: center; justify-items: center; text-align: center; padding: calc(120px + env(safe-area-inset-top, 0px)) 0 110px; overflow: hidden; }
-  .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .hero .wrap { position: relative; display: grid; justify-items: center; gap: 28px; width: 100%; pointer-events: none; }
-  .hero .wrap > * { pointer-events: auto; }
-  .hero .eyebrow { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
-  .hero h1 { width: 100%; }
-  .word-slot { height: clamp(150px, 26vw, 330px); width: 100%; position: relative; display: grid; place-items: center; }
-  .word-slot .fallback { font-weight: 800; font-size: clamp(2.4rem, 8vw, 6.6rem); letter-spacing: -0.045em; line-height: .98; text-transform: uppercase; }
-  body.js .word-slot .fallback { visibility: hidden; }
-  .hero .lede { max-width: 46ch; animation: rise 1s .18s cubic-bezier(.2,.7,.2,1) both; }
-  .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; justify-content: center; animation: rise 1s .28s cubic-bezier(.2,.7,.2,1) both; }
-  .hero-hint { position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); display: grid; justify-items: center; gap: 10px; }
-  .hero-hint i { display: block; width: 1px; height: 40px; background: var(--line); position: relative; overflow: hidden; }
-  .hero-hint i::after { content: ""; position: absolute; inset: 0; background: var(--ember); transform: translateY(-100%); animation: drop 1.8s ease-in-out infinite; }
-  .hero-tap { position: absolute; left: clamp(16px, 4vw, 48px); bottom: 26px; font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-  .hero-mascot { position: absolute; right: clamp(8px, 4vw, 60px); bottom: 10px; width: clamp(110px, 16vw, 210px); pointer-events: none; filter: drop-shadow(0 20px 40px rgba(255,45,74,.35)); animation: float 5s ease-in-out infinite; }
-  @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
-  @keyframes drop { 0% { transform: translateY(-100%);} 60% { transform: translateY(100%);} 100% { transform: translateY(100%);} }
-  @keyframes float { 0%,100% { transform: translateY(0) rotate(-3deg);} 50% { transform: translateY(-14px) rotate(3deg);} }
-
-  /* Le nostre passioni */
-  .passioni { position: relative; padding-block: clamp(90px, 12vw, 160px) clamp(60px, 8vw, 100px); overflow: hidden; }
-  .passioni .sketch { position: absolute; inset: 0; background: url("assets/schizzo-citta.webp") center/cover no-repeat; opacity: .13; pointer-events: none;
-    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 20%, #000 80%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 20%, #000 80%, transparent); }
-  .passioni .wrap { position: relative; }
-  .passioni-head { display: grid; gap: 16px; max-width: 760px; margin-bottom: 44px; position: relative; }
-  .passioni-head .occhiali { width: clamp(90px, 12vw, 150px); margin-bottom: -10px; filter: drop-shadow(0 16px 30px rgba(255,45,74,.35)); animation: float 6s ease-in-out infinite; }
-  .track { display: grid; grid-auto-flow: column; grid-auto-columns: min(380px, 84vw); gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: none; margin-inline: calc(-1 * clamp(16px, 4vw, 48px)); padding-inline: clamp(16px, 4vw, 48px); scroll-padding-inline: clamp(16px, 4vw, 48px); }
-  .track::-webkit-scrollbar { display: none; }
-  .card { --acc: var(--red); scroll-snap-align: start; position: relative; background: var(--bg-3); border-radius: 28px; padding: 30px; min-height: 460px; display: grid; grid-template-rows: auto 1fr auto; gap: 20px; overflow: hidden; text-decoration: none; color: inherit; transition: transform .35s cubic-bezier(.2,.7,.2,1); isolation: isolate; }
-  .card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(520px circle at var(--mx, 85%) var(--my, -10%), color-mix(in srgb, var(--acc) 42%, transparent), transparent 55%); opacity: .55; transition: opacity .35s ease; z-index: -1; }
-  .card:hover { transform: translateY(-6px); }
-  .card:hover::before { opacity: 1; }
-  .card .k { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; display: flex; justify-content: space-between; }
-  .card .k b { color: var(--acc); }
-  .card .ic { height: 96px; display: grid; align-items: center; justify-items: start; }
-  .card .ic img { height: 84px; width: auto; filter: drop-shadow(0 10px 26px rgba(216,46,0,.55)); transition: transform .4s cubic-bezier(.2,.7,.2,1); }
-  .card:hover .ic img { transform: translateY(-4px) scale(1.06); }
-  .card h3 { font-size: clamp(1.5rem, 2.2vw, 1.9rem); letter-spacing: -0.03em; font-weight: 700; text-transform: uppercase; }
-  .card .body { align-self: end; display: grid; gap: 12px; }
-  .card p { color: var(--muted); font-size: 1.05rem; }
-  .track-nav { display: flex; gap: 10px; justify-content: flex-end; margin-top: 22px; }
-  .track-nav button { width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(245,240,236,.1); color: var(--paper); display: grid; place-items: center; cursor: pointer; transition: background .2s ease; }
-  .track-nav button:hover { background: rgba(245,240,236,.22); }
-  .track-nav svg { width: 18px; height: 18px; }
-
-  /* L'isola: emerge dal mare mentre scorri */
-  .pin { position: relative; height: 240vh; }
-  .pin .stage { position: sticky; top: 0; height: 100svh; overflow: hidden; display: grid; align-items: center; }
-  .isola .stage .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 96px); align-items: center; width: 100%; position: relative; z-index: 2; }
-  .isola h2 { font-size: clamp(2.3rem, 5.6vw, 5rem); }
-  .isola .quote { margin-top: 18px; font-size: clamp(1.1rem, 1.7vw, 1.5rem); line-height: 1.4; color: var(--muted); max-width: 40ch; }
-  .isola .quote b { color: var(--paper); font-weight: 600; }
-  .isola-links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 22px; }
-  .isola-links a { text-decoration: none; font-size: .84rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: var(--paper); display: inline-flex; align-items: center; gap: 6px; }
-  .isola-links a svg { width: 16px; height: 16px; color: var(--ember); }
-  .isola-links a:hover { color: var(--ember); }
-  .isola-art { justify-self: center; width: min(100%, 560px); will-change: transform; filter: drop-shadow(0 40px 60px rgba(0,0,0,.7)); }
-  .sea { position: absolute; left: -10%; right: -10%; bottom: -2%; height: 42%; z-index: 3; pointer-events: none;
-    background: linear-gradient(to bottom, rgba(5,4,3,0) 0%, rgba(5,4,3,.85) 30%, var(--bg) 100%); }
-  .sea::before { content: ""; position: absolute; left: 0; right: 0; top: 18%; height: 2px; background: linear-gradient(90deg, transparent, rgba(255,106,0,.55), transparent); filter: blur(1px); }
-  .sun-glow { position: absolute; left: 50%; bottom: 20%; width: 90vmin; height: 40vmin; transform: translateX(-50%); background: radial-gradient(ellipse at center, rgba(255,106,0,.28), rgba(255,106,0,0) 65%); pointer-events: none; }
-
-  /* J@M MOOD */
-  .mood { position: relative; overflow: hidden; padding: 0; }
-  .mood-band { position: relative; height: clamp(200px, 32vw, 420px); display: grid; place-items: center; overflow: hidden; }
-  .mood-band .pattern { position: absolute; inset: -20% -50%; background: linear-gradient(90deg, #D82E00, #FF6A00, #FF2D4A, #D82E00); background-size: 200% 100%;
-    -webkit-mask: url("assets/pattern-mood.webp") center/900px auto repeat; mask: url("assets/pattern-mood.webp") center/900px auto repeat; opacity: .55; animation: pan 40s linear infinite; }
-  .mood-band::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(5,4,3,.2), rgba(5,4,3,.85) 70%); }
-  .mood-band h2 { position: relative; z-index: 2; font-size: clamp(4rem, 16vw, 15rem); font-weight: 800; letter-spacing: -0.06em; line-height: 1; text-transform: uppercase; }
-  @keyframes pan { to { transform: translateX(-450px); } }
-  .tv { padding-block: clamp(80px, 10vw, 140px) 0; }
-  .tv .wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(24px, 5vw, 80px); align-items: center; }
-  .tv h2 { font-size: clamp(3rem, 8vw, 7rem); text-transform: uppercase; }
-  .tv .lede { margin-top: 16px; max-width: 34ch; }
-  .tv-set { position: relative; width: min(100%, 680px); justify-self: center; filter: drop-shadow(0 40px 60px rgba(0,0,0,.7)); }
-  .tv-set img { width: 100%; }
-  .tv-set .screen { position: absolute; left: 19%; top: 41.2%; width: 52.3%; height: 31.9%; border-radius: 3% / 5%; overflow: hidden; background: #1a0f0a; }
-  .tv-set .screen iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-  .museo { position: relative; min-height: 100svh; display: grid; align-items: end; overflow: hidden; margin-top: clamp(60px, 8vw, 120px); }
-  .museo .art { position: absolute; inset: 0; background: url("assets/museo-arte.webp") center/cover no-repeat; will-change: transform, filter; transform: scale(1.12); filter: saturate(.2) brightness(.55); }
-  .museo .veil { position: absolute; inset: 0; background: linear-gradient(to top, var(--bg) 0%, rgba(5,4,3,.75) 35%, rgba(5,4,3,.15) 70%, rgba(5,4,3,.4) 100%); }
-  .museo .wrap { position: relative; padding-block: clamp(80px, 12vw, 160px) clamp(70px, 10vw, 140px); display: grid; gap: 18px; max-width: 900px; margin-inline: auto; text-align: center; justify-items: center; }
-  .museo h2 { font-size: clamp(3rem, 9vw, 8rem); text-transform: uppercase; }
-  .museo .lede { color: rgba(245,240,236,.9); max-width: 44ch; font-size: clamp(1.15rem, 1.8vw, 1.6rem); }
-
-  /* Community */
-  .community { padding-block: clamp(90px, 12vw, 150px); text-align: center; }
-  .community h2 { font-size: clamp(2rem, 5vw, 4rem); text-transform: uppercase; }
-  .socials { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 30px; }
-  .socials a { text-decoration: none; font-size: .9rem; font-weight: 600; padding: 12px 20px; border-radius: 999px; background: rgba(245,240,236,.08); transition: background .2s ease, transform .2s ease; display: inline-flex; align-items: center; gap: 8px; }
-  .socials a:hover { background: rgba(245,240,236,.18); transform: translateY(-2px); }
-  .socials svg { width: 18px; height: 18px; }
-  .ig-title { margin-top: clamp(56px, 8vw, 90px); font-size: clamp(1.6rem, 3.2vw, 2.6rem); font-weight: 700; letter-spacing: -0.03em; }
-  .ig-title small { display: block; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ember); font-weight: 600; margin-bottom: 8px; }
-  .ig { margin-top: 26px; display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; }
-  .ig a { display: block; border-radius: 14px; overflow: hidden; aspect-ratio: 1; background: var(--bg-3); }
-  .ig img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.2,.7,.2,1), filter .4s ease; filter: saturate(.85); }
-  .ig a:hover img { transform: scale(1.08); filter: saturate(1.1); }
-
-  /* I villaggi */
-  .villaggi { padding-block: clamp(80px, 10vw, 140px); background: var(--bg-2); border-block: 1px solid var(--line); overflow: hidden; }
-  .villaggi .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(24px, 5vw, 80px); align-items: center; }
-  .villaggi-art { width: min(100%, 460px); justify-self: center; filter: drop-shadow(0 30px 60px rgba(0,0,0,.7)); animation: float 7s ease-in-out infinite; }
-  .villaggi h2 { font-size: clamp(2.4rem, 5.5vw, 4.8rem); }
-  .villaggi .lede { margin-top: 18px; max-width: 46ch; }
-
-  /* Form */
-  .contact { padding-block: clamp(90px, 12vw, 160px); position: relative; overflow: hidden; }
-  .contact .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
-  .contact h2 { font-size: clamp(2.6rem, 6.5vw, 5.6rem); }
-  .contact .lede { margin-top: 18px; max-width: 34ch; }
-  .contact-mascot { width: clamp(150px, 20vw, 280px); margin-top: 30px; filter: drop-shadow(0 20px 40px rgba(255,45,74,.4)); animation: float 5.5s ease-in-out infinite; }
-  form.panel { background: var(--bg-3); border-radius: 28px; padding: clamp(22px, 3vw, 36px); display: grid; gap: 16px; }
-  .field { display: grid; gap: 6px; }
-  .field label { font-size: .86rem; font-weight: 600; color: rgba(245,240,236,.9); }
-  .field input, .field textarea { font: inherit; font-size: 1rem; padding: 14px 16px; border-radius: 12px; border: 1px solid transparent; background: rgba(245,240,236,.07); color: var(--paper); width: 100%; transition: border-color .2s ease, background .2s ease; }
-  .field input::placeholder, .field textarea::placeholder { color: rgba(158,147,141,.8); }
-  .field textarea { min-height: 120px; resize: vertical; }
-  .field input:focus, .field textarea:focus { outline: none; border-color: var(--ember); background: rgba(245,240,236,.1); }
-  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .legal { font-size: .8rem; color: var(--muted); }
-  .legal a { color: inherit; }
-  .sent { display: none; background: rgba(255,106,0,.12); border: 1px solid rgba(255,106,0,.4); border-radius: 12px; padding: 14px 16px; font-weight: 600; }
-  .sent.show { display: block; }
-
-  /* Footer */
-  .site-footer { border-top: 1px solid var(--line); padding-block: 56px calc(40px + env(safe-area-inset-bottom, 0px)); color: var(--muted); font-size: .9rem; }
-  .site-footer .grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 32px; align-items: center; }
-  .site-footer .brand { text-align: center; display: grid; justify-items: center; gap: 10px; }
-  .site-footer .brand img { height: 74px; width: auto; filter: drop-shadow(0 10px 30px rgba(216,46,0,.35)); }
-  .site-footer .brand .claim { font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--paper); font-size: .86rem; }
-  .site-footer nav { display: grid; gap: 8px; }
-  .site-footer nav a { text-decoration: none; color: var(--muted); font-size: .84rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; }
-  .site-footer nav a:hover { color: var(--paper); }
-  .site-footer .addr { display: grid; gap: 8px; text-align: right; }
-  .site-footer .addr a { text-decoration: none; color: var(--paper); font-weight: 500; }
-  .site-footer .addr a:hover { color: var(--ember); }
-  .site-footer .rights { margin-top: 40px; border-top: 1px solid var(--line); padding-top: 20px; font-size: .78rem; text-align: center; letter-spacing: .04em; }
-
-  /* Torna su (mascotte mini, come nel sito attuale) */
-  .totop { position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 70; width: 56px; height: 56px; border: 0; background: transparent; padding: 0; cursor: pointer; opacity: 0; transform: translateY(20px); transition: opacity .3s ease, transform .3s ease; }
-  .totop.show { opacity: 1; transform: none; }
-  .totop img { width: 100%; filter: drop-shadow(0 8px 20px rgba(255,45,74,.5)); }
-
-  /* Reveal (solo sotto la piega) */
-  body.js [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
-  body.js [data-reveal].in { opacity: 1; transform: none; }
-  body.js [data-stagger] > * { opacity: 0; transform: translateY(22px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
-  body.js [data-stagger].in > * { opacity: 1; transform: none; }
-  body.js [data-stagger].in > :nth-child(2) { transition-delay: .1s; }
-  body.js [data-stagger].in > :nth-child(3) { transition-delay: .2s; }
-  body.js [data-stagger].in > :nth-child(4) { transition-delay: .3s; }
-  body.js [data-stagger].in > :nth-child(5) { transition-delay: .4s; }
-  body.js [data-stagger].in > :nth-child(6) { transition-delay: .5s; }
-  body.js [data-stagger].in > :nth-child(7) { transition-delay: .6s; }
-  body.js [data-stagger].in > :nth-child(8) { transition-delay: .7s; }
-
-  @media (max-width: 1000px) {
-    .nav { display: none; }
-    .burger { display: inline-flex; }
-    .isola .stage .wrap, .tv .wrap, .villaggi .wrap, .contact .wrap { grid-template-columns: 1fr; }
-    .isola .stage .wrap { align-content: center; gap: 20px; }
-    .isola-art { width: min(64%, 380px); order: -1; }
-    .sea { height: 24%; }
-    .sun-glow { bottom: 6%; }
-    .tv-set { order: 2; }
-    .ig { grid-template-columns: repeat(4, 1fr); }
-    .site-footer .grid { grid-template-columns: 1fr; text-align: center; }
-    .site-footer .addr { text-align: center; }
-    .site-footer nav { justify-items: center; }
-  }
-  @media (max-width: 560px) {
-    body { font-size: 17px; }
-    .top .wrap { height: 58px; }
-    .logo img { height: 38px; }
-    .hero { padding-top: calc(96px + env(safe-area-inset-top, 0px)); padding-bottom: 120px; }
-    .hero-ctas { flex-direction: column; width: 100%; }
-    .hero-ctas .btn { width: 100%; }
-    .hero-tap { display: none; }
-    .hero-mascot { width: 96px; right: 8px; bottom: 60px; }
-    .pin { height: 200vh; }
-    .isola h2 { font-size: clamp(2rem, 9vw, 3rem); }
-    .isola .quote { font-size: 1rem; }
-    .isola-art { width: min(58%, 300px); }
-    .row2 { grid-template-columns: 1fr; }
-    .card { min-height: 420px; padding: 24px; }
-    .ig { gap: 6px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .hero .eyebrow, .hero .lede, .hero-ctas, .hero-hint i::after, .hero-mascot, .passioni-head .occhiali, .villaggi-art, .contact-mascot, .mood-band .pattern { animation: none; }
-    body.js [data-reveal], body.js [data-stagger] > * { opacity: 1; transform: none; transition: none; }
-    .card, .btn { transition: none; }
-  }
+.hero-home { align-items: center; text-align: center; min-height: 100svh; padding-top: calc(120px + env(safe-area-inset-top, 0px)); padding-bottom: 110px; }
+.hero-home .wrap { justify-items: center; gap: 26px; pointer-events: none; }
+.hero-home .wrap > * { pointer-events: auto; }
+.hero-home canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.hero-home .art.dim { filter: brightness(.55) saturate(.9); }
+.hero-home .veil { background: linear-gradient(to top, var(--bg) 0%, rgba(5,4,3,.55) 30%, rgba(5,4,3,.25) 60%, rgba(5,4,3,.55) 100%); }
+.hero-home h1 { width: 100%; max-width: none; }
+.word-slot { height: clamp(150px, 26vw, 330px); width: 100%; position: relative; display: grid; place-items: center; }
+.word-slot .fallback { font-weight: 800; font-size: clamp(2.4rem, 8vw, 6.6rem); letter-spacing: -0.045em; line-height: .98; text-transform: uppercase; }
+body.js .word-slot .fallback { visibility: hidden; }
+.hero-home .lede { max-width: 46ch; }
+.hero-hint { position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); display: grid; justify-items: center; gap: 10px; }
+.hero-hint i { display: block; width: 1px; height: 40px; background: var(--line); position: relative; overflow: hidden; }
+.hero-hint i::after { content: ""; position: absolute; inset: 0; background: var(--ember); transform: translateY(-100%); animation: drop 1.8s ease-in-out infinite; }
+.hero-tap { position: absolute; left: var(--gutter); bottom: 26px; font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.hero-mascot { position: absolute; left: clamp(8px, 4vw, 60px); top: 36%; width: clamp(90px, 12vw, 170px); pointer-events: none; filter: drop-shadow(0 20px 40px rgba(255,45,74,.35)); animation: float 5s ease-in-out infinite; }
+@keyframes drop { 0% { transform: translateY(-100%);} 60% { transform: translateY(100%);} 100% { transform: translateY(100%);} }
+/* Passioni: sipario sul Vettriano */
+.passioni-head { display: grid; gap: 16px; max-width: 760px; position: relative; }
+.passioni-head .occhiali { width: clamp(90px, 12vw, 150px); margin-bottom: -10px; filter: drop-shadow(0 16px 30px rgba(255,45,74,.35)); }
+.curtain { position: relative; height: clamp(300px, 52vw, 640px); margin-block: 44px 52px; border-radius: 28px; overflow: hidden; clip-path: inset(0 calc((1 - var(--open, 0)) * 50%) round 28px); box-shadow: 0 50px 100px -40px rgba(0,0,0,.9); }
+.curtain-art { position: absolute; inset: -8%; background: center 30%/cover no-repeat; animation: pan 36s ease-in-out infinite alternate; }
+.curtain::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,4,3,.7), transparent 45%); }
+.curtain .cap { position: absolute; left: 24px; bottom: 18px; font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(245,240,236,.8); z-index: 2; }
+.curtain .q { position: absolute; right: 24px; bottom: 18px; font-size: clamp(1rem, 1.6vw, 1.3rem); font-weight: 600; letter-spacing: -0.01em; max-width: 30ch; text-align: right; z-index: 2; text-shadow: 0 2px 20px rgba(0,0,0,.8); }
+@keyframes pan { from { transform: translateX(-2%) scale(1); } to { transform: translateX(2%) scale(1.06); } }
+.track { display: grid; grid-auto-flow: column; grid-auto-columns: min(380px, 84vw); gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: none; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); scroll-padding-inline: var(--gutter); }
+.track::-webkit-scrollbar { display: none; }
+.card { --acc: var(--red); scroll-snap-align: start; position: relative; background: var(--bg-3); border-radius: 28px; padding: 30px; min-height: 460px; display: grid; grid-template-rows: auto 1fr auto; gap: 20px; overflow: hidden; text-decoration: none; color: inherit; transition: transform .35s cubic-bezier(.2,.7,.2,1); isolation: isolate; }
+.card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(520px circle at var(--mx, 85%) var(--my, -10%), color-mix(in srgb, var(--acc) 42%, transparent), transparent 55%); opacity: .55; transition: opacity .35s ease; z-index: -1; }
+.card:hover { transform: translateY(-6px); } .card:hover::before { opacity: 1; }
+.card .k { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; display: flex; justify-content: space-between; }
+.card .k b { color: var(--acc); }
+.card .ic { height: 96px; display: grid; align-items: center; justify-items: start; }
+.card .ic img { height: 84px; width: auto; filter: drop-shadow(0 10px 26px rgba(216,46,0,.55)); transition: transform .4s cubic-bezier(.2,.7,.2,1); }
+.card:hover .ic img { transform: translateY(-4px) scale(1.06); }
+.card h3 { font-size: clamp(1.5rem, 2.2vw, 1.9rem); letter-spacing: -0.03em; font-weight: 700; text-transform: uppercase; }
+.card .body { align-self: end; display: grid; gap: 12px; }
+.card p { color: var(--muted); font-size: 1.05rem; }
+.track-nav { display: flex; gap: 10px; justify-content: flex-end; margin-top: 22px; }
+.track-nav button { width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(245,240,236,.1); color: var(--paper); display: grid; place-items: center; cursor: pointer; }
+.track-nav button:hover { background: rgba(245,240,236,.22); }
+.track-nav svg { width: 18px; height: 18px; }
+/* Isola che emerge sopra l'Escher */
+.pin { position: relative; height: 240vh; }
+.pin .stage { position: sticky; top: 0; height: 100svh; overflow: hidden; display: grid; align-items: center; }
+.isola .stage .art-wrap { inset: -6%; }
+.isola .stage .art.dim { filter: brightness(.3) saturate(.7); }
+.isola .stage .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 96px); align-items: center; width: 100%; position: relative; z-index: 2; }
+.isola h2 { font-size: clamp(2.3rem, 5.6vw, 5rem); }
+.isola .quote { margin-top: 18px; font-size: clamp(1.1rem, 1.7vw, 1.5rem); line-height: 1.4; color: var(--muted); max-width: 40ch; }
+.isola .quote b { color: var(--paper); font-weight: 600; }
+.isola-links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 22px; }
+.isola-links a { text-decoration: none; font-size: .84rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: var(--paper); display: inline-flex; align-items: center; gap: 6px; }
+.isola-links a svg { width: 16px; height: 16px; color: var(--ember); }
+.isola-links a:hover { color: var(--ember); }
+.isola-art { justify-self: center; width: min(100%, 560px); will-change: transform; filter: drop-shadow(0 40px 60px rgba(0,0,0,.7)); }
+.sea { position: absolute; left: -10%; right: -10%; bottom: -2%; height: 40%; z-index: 3; pointer-events: none; background: linear-gradient(to bottom, rgba(5,4,3,0) 0%, rgba(5,4,3,.85) 30%, var(--bg) 100%); }
+.sea::before { content: ""; position: absolute; left: 0; right: 0; top: 18%; height: 2px; background: linear-gradient(90deg, transparent, rgba(255,106,0,.55), transparent); filter: blur(1px); }
+.isola .credit { position: absolute; right: var(--gutter); bottom: 14px; z-index: 4; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(245,240,236,.5); }
+/* Mood */
+.mood-band { position: relative; height: clamp(220px, 34vw, 440px); display: grid; place-items: center; overflow: hidden; }
+.mood-band .art-wrap { inset: -6%; }
+.mood-band .art.dim { filter: brightness(.5) saturate(1.1); }
+.mood-band .pattern { position: absolute; inset: -20% -50%; background: linear-gradient(90deg, #D82E00, #FF6A00, #FF2D4A, #D82E00); -webkit-mask: url(/jam-sito/assets/pattern-mood.webp) center/900px auto repeat; mask: url(/jam-sito/assets/pattern-mood.webp) center/900px auto repeat; opacity: .35; animation: panx 40s linear infinite; }
+.mood-band::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(5,4,3,.1), rgba(5,4,3,.85) 75%); }
+.mood-band h2 { position: relative; z-index: 2; font-size: clamp(4rem, 16vw, 15rem); font-weight: 800; letter-spacing: -0.06em; line-height: 1; text-transform: uppercase; }
+.mood-band .credit { position: absolute; right: var(--gutter); bottom: 12px; z-index: 2; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(245,240,236,.55); }
+@keyframes panx { to { transform: translateX(-450px); } }
+.tvh .wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(24px, 5vw, 80px); align-items: center; }
+.tvh h2 { font-size: clamp(3rem, 8vw, 7rem); text-transform: uppercase; }
+.museo-head { display: grid; gap: 16px; max-width: 820px; }
+.museo-head h2 { font-size: clamp(3rem, 9vw, 8rem); text-transform: uppercase; }
+/* Villaggi: la pioggia di Magritte */
+.villaggi .art.dim { filter: brightness(.35) saturate(.9); animation: rain 24s linear infinite; }
+.villaggi .art.lit { animation: rain 24s linear infinite; }
+@keyframes rain { from { background-position: center 0%; } to { background-position: center 100%; } }
+.villaggi .veil { background: linear-gradient(to right, rgba(5,4,3,.9) 0%, rgba(5,4,3,.5) 55%, rgba(5,4,3,.15) 100%); }
+.villaggi .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(24px, 5vw, 80px); align-items: center; }
+.villaggi-art { width: min(100%, 440px); justify-self: center; filter: drop-shadow(0 30px 60px rgba(0,0,0,.7)); }
+@media (max-width: 1000px) {
+  .isola .stage .wrap, .tvh .wrap, .villaggi .wrap { grid-template-columns: 1fr; }
+  .isola .stage .wrap { align-content: center; gap: 20px; }
+  .isola-art { width: min(64%, 380px); order: -1; } .sea { height: 24%; }
+  .tv-set { order: 2; }
+}
+@media (max-width: 560px) {
+  .hero-home { padding-top: calc(96px + env(safe-area-inset-top, 0px)); padding-bottom: 120px; }
+  .hero-tap, .hero-mascot { display: none; }
+  .pin { height: 200vh; } .isola h2 { font-size: clamp(2rem, 9vw, 3rem); } .isola .quote { font-size: 1rem; } .isola-art { width: min(58%, 300px); }
+  .card { min-height: 420px; padding: 24px; }
+  .curtain { height: 62vw; border-radius: 18px; clip-path: inset(0 calc((1 - var(--open, 0)) * 50%) round 18px); }
+  .curtain .q { display: none; }
+}
 </style>
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-arrow-l" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3h3l1.7 4.3-2.2 1.6a12 12 0 0 0 6 6l1.6-2.2L21 14.4v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.2 2 2 0 0 1 6.6 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
-    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.3-3.8A8 8 0 1 1 8.2 19L4 20z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9.5 8.5c0 3 3 6 6 6l1-1.5-2-1-1 .8a5 5 0 0 1-2.3-2.3l.8-1-1-2-1.5 1z" fill="currentColor"/></symbol>
-    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="i-in" viewBox="0 0 24 24"><path d="M4 9h4v11H4zM6 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM10 9h4v2c.6-1.2 2-2.3 4-2.3 3.6 0 4 2.4 4 5.5V20h-4v-5c0-1.5-.3-2.8-1.9-2.8S14 13.6 14 15v5h-4z" fill="currentColor"/></symbol>
-    <symbol id="i-fb" viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.4V11H7v4h3v6h4v-6h3l1-4h-4V8.6c0-.4.2-.6.6-.6z" fill="currentColor"/></symbol>
-    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
-    <symbol id="i-vimeo" viewBox="0 0 24 24"><path d="M22 7.4c-.1 2-1.5 4.7-4.2 8.1-2.8 3.6-5.2 5.4-7.1 5.4-1.2 0-2.2-1.1-3-3.3L6.1 11.7C5.5 9.5 4.9 8.4 4.2 8.4c-.2 0-.7.3-1.6.9L1.7 8.1c1-.9 2-1.8 3-2.7 1.3-1.2 2.3-1.8 3-1.8 1.6-.2 2.6.9 3 3.3.4 2.6.7 4.2.8 4.8.5 2.1 1 3.1 1.5 3.1.4 0 1.1-.7 1.9-2 .9-1.4 1.3-2.4 1.4-3.1.1-1.2-.3-1.8-1.4-1.8-.5 0-1 .1-1.5.3 1-3.3 2.9-4.9 5.8-4.8 2.1.1 3.1 1.5 2.8 4z" fill="currentColor"/></symbol>
-    <symbol id="i-tt" viewBox="0 0 24 24"><path d="M14 3h3.2c.3 2.3 1.6 3.7 3.8 4v3.2c-1.4 0-2.7-.4-3.8-1.2v6.3A5.7 5.7 0 1 1 11.5 9.6v3.3a2.5 2.5 0 1 0 2.5 2.5V3z" fill="currentColor"/></symbol>
-    <symbol id="i-xt" viewBox="0 0 24 24"><path d="M4 3h4.5l4 5.6L17.5 3H20l-6.3 7.4L21 21h-4.5l-4.4-6.1L6.5 21H4l6.9-8z" fill="currentColor"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.6 7-12a7 7 0 0 0-14 0c0 5.4 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="currentColor"/></symbol>
-  </defs>
-</svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-arrow-l" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3h3l1.7 4.3-2.2 1.6a12 12 0 0 0 6 6l1.6-2.2L21 14.4v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.2 2 2 0 0 1 6.6 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+<symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.3-3.8A8 8 0 1 1 8.2 19L4 20z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9.5 8.5c0 3 3 6 6 6l1-1.5-2-1-1 .8a5 5 0 0 1-2.3-2.3l.8-1-1-2-1.5 1z" fill="currentColor"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-in" viewBox="0 0 24 24"><path d="M4 9h4v11H4zM6 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM10 9h4v2c.6-1.2 2-2.3 4-2.3 3.6 0 4 2.4 4 5.5V20h-4v-5c0-1.5-.3-2.8-1.9-2.8S14 13.6 14 15v5h-4z" fill="currentColor"/></symbol>
+<symbol id="i-fb" viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.4V11H7v4h3v6h4v-6h3l1-4h-4V8.6c0-.4.2-.6.6-.6z" fill="currentColor"/></symbol>
+<symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
+<symbol id="i-vimeo" viewBox="0 0 24 24"><path d="M22 7.4c-.1 2-1.5 4.7-4.2 8.1-2.8 3.6-5.2 5.4-7.1 5.4-1.2 0-2.2-1.1-3-3.3L6.1 11.7C5.5 9.5 4.9 8.4 4.2 8.4c-.2 0-.7.3-1.6.9L1.7 8.1c1-.9 2-1.8 3-2.7 1.3-1.2 2.3-1.8 3-1.8 1.6-.2 2.6.9 3 3.3.4 2.6.7 4.2.8 4.8.5 2.1 1 3.1 1.5 3.1.4 0 1.1-.7 1.9-2 .9-1.4 1.3-2.4 1.4-3.1.1-1.2-.3-1.8-1.4-1.8-.5 0-1 .1-1.5.3 1-3.3 2.9-4.9 5.8-4.8 2.1.1 3.1 1.5 2.8 4z" fill="currentColor"/></symbol>
+<symbol id="i-tt" viewBox="0 0 24 24"><path d="M14 3h3.2c.3 2.3 1.6 3.7 3.8 4v3.2c-1.4 0-2.7-.4-3.8-1.2v6.3A5.7 5.7 0 1 1 11.5 9.6v3.3a2.5 2.5 0 1 0 2.5 2.5V3z" fill="currentColor"/></symbol>
+<symbol id="i-xt" viewBox="0 0 24 24"><path d="M4 3h4.5l4 5.6L17.5 3H20l-6.3 7.4L21 21h-4.5l-4.4-6.1L6.5 21H4l6.9-8z" fill="currentColor"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.6 7-12a7 7 0 0 0-14 0c0 5.4 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="currentColor"/></symbol>
+</defs></svg>
 
-<header class="top" id="top">
-  <div class="wrap">
-    <a class="logo" href="#home" aria-label="J@M Passion — home"><img src="assets/logo.webp" width="506" height="287" alt="J@M Passion"></a>
-    <nav class="nav" aria-label="Principale">
-      <a href="#home">Home</a>
-      <a href="#isola">L’isola</a>
-      <a href="#passioni">Passioni</a>
-      <a href="#mood">J@M Mood</a>
-      <a href="#villaggi">I villaggi</a>
-    </nav>
-    <div class="top-actions">
-      <a class="icon-btn" href="tel:02898094" aria-label="Chiama 02 898094" title="02 898094"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
-      <a class="icon-btn" href="https://api.whatsapp.com/send?phone=+3902898094" rel="noopener" aria-label="Scrivici su WhatsApp" title="WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
-      <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu"><svg aria-hidden="true"><use href="#i-menu"/></svg></button>
-    </div>
+
+<header class="top" id="top"><div class="wrap">
+  <a class="logo" href="/jam-sito/" aria-label="J@M Passion — home"><img src="/jam-sito/assets/logo.webp" width="506" height="287" alt="J@M Passion"></a>
+  <nav class="nav" aria-label="Principale"><div><a href="/jam-sito/" aria-current="page">Home</a></div><div><a href="/jam-sito/lisola/">L’isola</a><button type="button" aria-haspopup="true" aria-label="Apri L’isola"><svg><use href="#i-down"/></svg></button><div class="dd"><a href="/jam-sito/lisola/manifesto/">Manifesto</a><a href="/jam-sito/lisola/storia-di-jm/">Storia di J@M</a><a href="/jam-sito/lisola/gli-abitanti/">Gli abitanti</a><a href="/jam-sito/lisola/amici-partner/">Amici & partner</a><a href="/jam-sito/lavora-con-noi/">Lavora con noi</a></div></div><div><a href="/jam-sito/passioni/">Passioni</a><button type="button" aria-haspopup="true" aria-label="Apri Passioni"><svg><use href="#i-down"/></svg></button><div class="dd"><a href="/jam-sito/passioni/telecomunicazioni/">Telecomunicazioni</a><a href="/jam-sito/passioni/energia/">Energia</a><a href="/jam-sito/passioni/noleggio-auto/">Auto noleggio</a><a href="/jam-sito/passioni/servizi-web/">Servizi web</a><a href="/jam-sito/passioni/efficientamento-energetico/">Efficientamento energetico</a></div></div><div><a href="/jam-sito/jm-mood/">J@M Mood</a><button type="button" aria-haspopup="true" aria-label="Apri J@M Mood"><svg><use href="#i-down"/></svg></button><div class="dd"><a href="/jam-sito/jm-mood/tv/">TV</a><a href="/jam-sito/jm-mood/museo/">Museo</a><a href="/jam-sito/jm-mood/community/">Community</a><a href="/jam-sito/jm-mood/jm-session/">J@M Session</a></div></div><div><a href="/jam-sito/i-villaggi/">I villaggi</a></div></nav>
+  <div class="top-actions">
+    <a class="icon-btn" href="tel:02898094" aria-label="Chiama 02 898094" title="02 898094"><svg><use href="#i-phone"/></svg></a>
+    <a class="icon-btn" href="https://api.whatsapp.com/send?phone=+3902898094" rel="noopener" aria-label="Scrivici su WhatsApp" title="WhatsApp"><svg><use href="#i-wa"/></svg></a>
+    <button class="icon-btn burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu"><svg><use href="#i-menu"/></svg></button>
   </div>
-</header>
-<nav class="menu" id="menu" aria-label="Menu">
-  <button class="burger close" id="menuClose" aria-label="Chiudi il menu"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
-  <a href="#home">Home</a>
-  <a href="#isola">L’isola</a>
-  <a href="#passioni">Passioni</a>
-  <a href="#mood">J@M Mood</a>
-  <a href="#villaggi">I villaggi</a>
-  <a href="#contatti">Contatti</a>
-</nav>
+</div></header>
+<nav class="menu" id="menu" aria-label="Menu"><button class="icon-btn close" id="menuClose" aria-label="Chiudi il menu"><svg><use href="#i-x"/></svg></button><div class="grp"><a href="/jam-sito/">Home</a></div><div class="grp"><a href="/jam-sito/lisola/">L’isola</a><div class="sub"><a href="/jam-sito/lisola/manifesto/">Manifesto</a><a href="/jam-sito/lisola/storia-di-jm/">Storia di J@M</a><a href="/jam-sito/lisola/gli-abitanti/">Gli abitanti</a><a href="/jam-sito/lisola/amici-partner/">Amici & partner</a><a href="/jam-sito/lavora-con-noi/">Lavora con noi</a></div></div><div class="grp"><a href="/jam-sito/passioni/">Passioni</a><div class="sub"><a href="/jam-sito/passioni/telecomunicazioni/">Telecomunicazioni</a><a href="/jam-sito/passioni/energia/">Energia</a><a href="/jam-sito/passioni/noleggio-auto/">Auto noleggio</a><a href="/jam-sito/passioni/servizi-web/">Servizi web</a><a href="/jam-sito/passioni/efficientamento-energetico/">Efficientamento energetico</a></div></div><div class="grp"><a href="/jam-sito/jm-mood/">J@M Mood</a><div class="sub"><a href="/jam-sito/jm-mood/tv/">TV</a><a href="/jam-sito/jm-mood/museo/">Museo</a><a href="/jam-sito/jm-mood/community/">Community</a><a href="/jam-sito/jm-mood/jm-session/">J@M Session</a></div></div><div class="grp"><a href="/jam-sito/i-villaggi/">I villaggi</a></div><div class="grp"><a href="/jam-sito/#contatti">Contatti</a></div></nav>
 
 <main>
-  <section class="hero" id="home" aria-labelledby="hero-title">
-    <canvas id="heroCanvas" aria-hidden="true"></canvas>
-    <div class="wrap">
-      <p class="eyebrow">Consulenza professionale per imprese e privati</p>
-      <h1 id="hero-title">
-        <span class="word-slot" id="wordSlot"><span class="fallback grad" id="wordFallback">Testa, cuore<br>e spirito<br>d'iniziativa</span><span class="sr-only">Testa, cuore e spirito d'iniziativa</span></span>
-      </h1>
-      <p class="lede">In J@M si crea, si sperimenta, si scommette perché le strade inesplorate nascondono un mare di possibilità.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" data-spark href="https://www.jam-srl.it/lisola/manifesto/">manifesto</a>
-        <a class="link" href="#contatti">Vuoi chiederci qualcosa? <svg aria-hidden="true"><use href="#i-chev"/></svg></a>
-      </div>
-    </div>
-    <img class="hero-mascot" id="heroMascot" src="assets/mascotte.webp" width="444" height="363" alt="">
-    <p class="hero-hint"><i></i> Scorri</p>
-    <p class="hero-tap">Clicca per far esplodere</p>
-  </section>
 
-  <section class="passioni" id="passioni" aria-labelledby="pass-title">
-    <div class="sketch" aria-hidden="true"></div>
-    <div class="wrap">
-      <div class="passioni-head" data-reveal>
-        <img class="occhiali" src="assets/mascotte-occhiali.webp" width="444" height="363" alt="">
-        <h2 id="pass-title">Le nostre passioni</h2>
-        <p class="lede">Una gamma completa di servizi per la tua casa e per il tuo business</p>
-      </div>
-      <div class="track" id="track" data-stagger>
-        <a class="card" href="https://www.jam-srl.it/passioni/telecomunicazioni/" style="--acc:#FF3D71">
-          <div class="k"><span>Passione</span><b>01</b></div>
-          <div class="ic"><img src="assets/icona-telecomunicazioni.webp" width="420" height="334" alt=""></div>
-          <div class="body"><h3>Telecomunicazioni</h3><p>Piani Telefonia e Internet</p><span class="link">scopri <svg aria-hidden="true"><use href="#i-chev"/></svg></span></div>
-        </a>
-        <a class="card" href="https://www.jam-srl.it/passioni/energia/" style="--acc:#FF6A00">
-          <div class="k"><span>Passione</span><b>02</b></div>
-          <div class="ic"><img src="assets/icona-energia.webp" width="309" height="585" alt=""></div>
-          <div class="body"><h3>Energia</h3><p>Forniture luce e gas, nuovi allacci, subentri e volture</p><span class="link">scopri <svg aria-hidden="true"><use href="#i-chev"/></svg></span></div>
-        </a>
-        <a class="card" href="https://www.jam-srl.it/passioni/noleggio-auto/" style="--acc:#D82E00">
-          <div class="k"><span>Passione</span><b>03</b></div>
-          <div class="ic"><img src="assets/icona-auto.webp" width="420" height="370" alt=""></div>
-          <div class="body"><h3>Auto noleggio</h3><p>A medio e lungo termine</p><span class="link">scopri <svg aria-hidden="true"><use href="#i-chev"/></svg></span></div>
-        </a>
-        <a class="card" href="https://www.jam-srl.it/passioni/servizi-web/" style="--acc:#FF8A5B">
-          <div class="k"><span>Passione</span><b>04</b></div>
-          <div class="ic"><img src="assets/icona-web.webp" width="420" height="420" alt=""></div>
-          <div class="body"><h3>Servizi web</h3><p>Web Design, SEO, Digital Marketing, Social Media</p><span class="link">scopri <svg aria-hidden="true"><use href="#i-chev"/></svg></span></div>
-        </a>
-        <a class="card" href="https://www.jam-srl.it/passioni/efficientamento-energetico/" style="--acc:#FFB300">
-          <div class="k"><span>Passione</span><b>05</b></div>
-          <div class="ic"><img src="assets/icona-efficientamento.webp" width="420" height="377" alt=""></div>
-          <div class="body"><h3>Efficientamento energetico</h3><p>Superbonus ed Ecobonus per immobili indipendenti e condomini</p><span class="link">scopri <svg aria-hidden="true"><use href="#i-chev"/></svg></span></div>
-        </a>
-      </div>
-      <div class="track-nav">
-        <button type="button" id="prevCard" aria-label="Scheda precedente"><svg aria-hidden="true"><use href="#i-arrow-l"/></svg></button>
-        <button type="button" id="nextCard" aria-label="Scheda successiva"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
-      </div>
-    </div>
-  </section>
+<section class="art-hero tall hero-home" id="home"><div class="art-wrap"><div class="art-zoom"><div class="art dim" style="background-image:url(/jam-sito/assets/img/art-escher-giorno-notte.webp)"></div><div class="art lit" style="background-image:url(/jam-sito/assets/img/art-escher-giorno-notte.webp)"></div></div></div><div class="veil"></div><canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="eyebrow">Consulenza professionale per imprese e privati</p>
+    <h1><span class="word-slot" id="wordSlot"><span class="fallback grad">Testa, cuore<br>e spirito<br>d'iniziativa</span><span class="sr-only">Testa, cuore e spirito d'iniziativa</span></span></h1>
+    <p class="lede">In J@M si crea, si sperimenta, si scommette perché le strade inesplorate nascondono un mare di possibilità.</p>
+    <div class="ctas" style="justify-content:center"><a class="btn btn-primary" href="/jam-sito/lisola/manifesto/">manifesto</a><a class="link" href="#contatti">Vuoi chiederci qualcosa? <svg><use href="#i-chev"/></svg></a></div>
+  </div>
+  <img class="hero-mascot" src="/jam-sito/assets/mascotte.webp" width="444" height="363" alt="">
+  <p class="hero-hint"><i></i> Scorri</p><p class="hero-tap">Clicca per far esplodere</p>
+  <span class="credit">M.C. Escher, Giorno e notte · Museo J@M</span>
+</section>
 
-  <section class="pin isola" id="isola" aria-labelledby="isola-title">
-    <div class="stage">
-      <div class="sun-glow" aria-hidden="true"></div>
-      <div class="wrap">
-        <div>
-          <p class="eyebrow">L’isola</p>
-          <h2 id="isola-title" style="margin-top:14px">Un'isola coinvolgente</h2>
-          <p class="quote">Non è la specie più intelligente a sopravvivere e nemmeno quella più forte. <b>È quella più predisposta ai cambiamenti.</b></p>
-          <div style="margin-top:26px"><a class="btn btn-primary" data-spark href="https://www.jam-srl.it/lisola/">scopri l'isola</a></div>
-          <div class="isola-links">
-            <a href="https://www.jam-srl.it/lisola/storia-di-jm/">Storia di J@M <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a href="https://www.jam-srl.it/lisola/gli-abitanti/">Gli abitanti <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a href="https://www.jam-srl.it/lisola/amici-partner/">Amici &amp; partner <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          </div>
-        </div>
-        <img class="isola-art" id="isolaArt" src="assets/isola.webp" width="994" height="673" alt="L'isola di J@M: una ragazza in una conchiglia tra le palme, con due piccoli abitanti">
-      </div>
-      <div class="sea" aria-hidden="true"></div>
-    </div>
-  </section>
+<section class="pad" id="passioni"><div class="wrap">
+  <div class="passioni-head" data-reveal><img class="occhiali floaty" src="/jam-sito/assets/mascotte-occhiali.webp" width="444" height="363" alt=""><h2>Le nostre passioni</h2><p class="lede">Una gamma completa di servizi per la tua casa e per il tuo business</p></div>
+  <div class="curtain" id="curtain"><div class="curtain-art" style="background-image:url(/jam-sito/assets/img/art-vettriano.webp)"></div><span class="cap">Jack Vettriano, The Singing Butler · Museo J@M</span><p class="q">Il consulente commerciale J@M può proporre numerosi prodotti, suggerendo efficaci strategie di investimento.</p></div>
+  <div class="track" id="track" data-stagger><a class="card" href="/jam-sito/passioni/telecomunicazioni/" style="--acc:#FF3D71"><div class="k"><span>Passione</span><b>01</b></div><div class="ic"><img src="/jam-sito/assets/icona-telecomunicazioni.webp" width="420" height="334" alt=""></div><div class="body"><h3>Telecomunicazioni</h3><p>Piani Telefonia e Internet</p><span class="link">scopri <svg><use href="#i-chev"/></svg></span></div></a><a class="card" href="/jam-sito/passioni/energia/" style="--acc:#FF6A00"><div class="k"><span>Passione</span><b>02</b></div><div class="ic"><img src="/jam-sito/assets/icona-energia.webp" width="309" height="585" alt=""></div><div class="body"><h3>Energia</h3><p>Forniture luce e gas, nuovi allacci, subentri e volture</p><span class="link">scopri <svg><use href="#i-chev"/></svg></span></div></a><a class="card" href="/jam-sito/passioni/noleggio-auto/" style="--acc:#D82E00"><div class="k"><span>Passione</span><b>03</b></div><div class="ic"><img src="/jam-sito/assets/icona-auto.webp" width="420" height="370" alt=""></div><div class="body"><h3>Auto noleggio</h3><p>A medio e lungo termine</p><span class="link">scopri <svg><use href="#i-chev"/></svg></span></div></a><a class="card" href="/jam-sito/passioni/servizi-web/" style="--acc:#FF8A5B"><div class="k"><span>Passione</span><b>04</b></div><div class="ic"><img src="/jam-sito/assets/icona-web.webp" width="420" height="420" alt=""></div><div class="body"><h3>Servizi web</h3><p>Web Design, SEO, Digital Marketing, Social Media</p><span class="link">scopri <svg><use href="#i-chev"/></svg></span></div></a><a class="card" href="/jam-sito/passioni/efficientamento-energetico/" style="--acc:#FFB300"><div class="k"><span>Passione</span><b>05</b></div><div class="ic"><img src="/jam-sito/assets/icona-efficientamento.webp" width="420" height="377" alt=""></div><div class="body"><h3>Efficientamento energetico</h3><p>Superbonus ed Ecobonus per immobili indipendenti e condomini</p><span class="link">scopri <svg><use href="#i-chev"/></svg></span></div></a></div>
+  <div class="track-nav"><button type="button" id="prevCard" aria-label="Scheda precedente"><svg><use href="#i-arrow-l"/></svg></button><button type="button" id="nextCard" aria-label="Scheda successiva"><svg><use href="#i-arrow"/></svg></button></div>
+</div></section>
 
-  <section class="mood" id="mood" aria-labelledby="mood-title">
-    <div class="mood-band">
-      <div class="pattern" aria-hidden="true"></div>
-      <h2 id="mood-title">Mood</h2>
+<section class="pin isola" id="isola"><div class="stage"><div class="art-wrap"><div class="art-zoom"><div class="art dim" style="background-image:url(/jam-sito/assets/img/art-escher-convesso.webp)"></div></div></div>
+  <div class="wrap">
+    <div><p class="eyebrow">L’isola</p><h2 class="mt">Un'isola coinvolgente</h2>
+      <p class="quote">Non è la specie più intelligente a sopravvivere e nemmeno quella più forte. <b>È quella più predisposta ai cambiamenti.</b></p>
+      <div class="mt2"><a class="btn btn-primary" href="/jam-sito/lisola/">scopri l'isola</a></div>
+      <div class="isola-links"><a href="/jam-sito/lisola/storia-di-jm/">Storia di J@M <svg><use href="#i-arrow"/></svg></a><a href="/jam-sito/lisola/gli-abitanti/">Gli abitanti <svg><use href="#i-arrow"/></svg></a><a href="/jam-sito/lisola/amici-partner/">Amici &amp; partner <svg><use href="#i-arrow"/></svg></a></div>
     </div>
-    <div class="tv">
-      <div class="wrap">
-        <div data-reveal>
-          <p class="eyebrow">J@M Mood</p>
-          <h2 style="margin-top:14px">TV</h2>
-          <p class="lede">Accendi la TV di J@M: il nostro video, dentro il nostro televisore.</p>
-          <div style="margin-top:26px"><a class="btn btn-outline" href="https://www.jam-srl.it/jm-mood/tv/">tutti i video <svg aria-hidden="true"><use href="#i-chev"/></svg></a></div>
-        </div>
-        <div class="tv-set" data-reveal>
-          <img src="assets/tv.webp" width="1080" height="1080" alt="Il televisore di J@M">
-          <div class="screen"><iframe src="https://player.vimeo.com/video/512464979?dnt=1&title=0&byline=0&portrait=0&color=ff6a00" title="Video J@M" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
-        </div>
-      </div>
-    </div>
-    <div class="museo" id="museo">
-      <div class="art" id="museoArt" aria-hidden="true"></div>
-      <div class="veil" aria-hidden="true"></div>
-      <div class="wrap">
-        <p class="eyebrow">J@M Mood</p>
-        <h2>Museo</h2>
-        <p class="lede">J@M è uno specchio di così tante personalità ed esperienze diverse che non potrà mai restare identica a sé stessa a lungo.</p>
-        <a class="btn btn-primary" data-spark href="https://www.jam-srl.it/jm-mood/museo/" style="margin-top:10px">fatti ispirare</a>
-      </div>
-    </div>
-  </section>
+    <img class="isola-art" id="isolaArt" src="/jam-sito/assets/isola.webp" width="994" height="673" alt="L'isola di J@M: una ragazza in una conchiglia tra le palme, con due piccoli abitanti">
+  </div>
+  <div class="sea"></div><span class="credit">M.C. Escher, Convesso e concavo · Museo J@M</span>
+</div></section>
 
-  <section class="community" aria-labelledby="comm-title">
-    <div class="wrap">
-      <h2 id="comm-title" data-reveal>La nostra community</h2>
-      <div class="socials" data-stagger>
-        <a href="https://www.linkedin.com/company/j-m-srl/" rel="noopener"><svg aria-hidden="true"><use href="#i-in"/></svg>LinkedIn</a>
-        <a href="https://www.facebook.com/jam.srl" rel="noopener"><svg aria-hidden="true"><use href="#i-fb"/></svg>Facebook</a>
-        <a href="https://www.instagram.com/jamsrl/" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a>
-        <a href="https://vimeo.com/jamsrl" rel="noopener"><svg aria-hidden="true"><use href="#i-vimeo"/></svg>Vimeo</a>
-        <a href="https://www.tiktok.com/@jampassion" rel="noopener"><svg aria-hidden="true"><use href="#i-tt"/></svg>TikTok</a>
-        <a href="https://twitter.com/jam_passion?lang=it" rel="noopener"><svg aria-hidden="true"><use href="#i-xt"/></svg>X / Twitter</a>
-      </div>
-      <p class="ig-title" data-reveal><small>Instagram</small>fatti prendere da j@m</p>
-      <div class="ig" data-stagger>
-        <a href="https://www.instagram.com/p/CsjAX24RmLF/" rel="noopener"><img src="assets/ig/post1.webp" width="480" height="480" loading="lazy" alt="Post Instagram J@M: IoT e Machine To Machine per la tua azienda"></a>
-        <a href="https://www.instagram.com/p/CsQcI6FoL43/" rel="noopener"><img src="assets/ig/post2.webp" width="480" height="480" loading="lazy" alt="Post Instagram J@M: i vantaggi del fotovoltaico"></a>
-        <a href="https://www.instagram.com/p/Cr_LWgYx3Cc/" rel="noopener"><img src="assets/ig/post3.webp" width="480" height="480" loading="lazy" alt="Post Instagram J@M: consulenza energetica gratuita"></a>
-        <a href="https://www.instagram.com/p/CrtB_uCRgoX/" rel="noopener"><img src="assets/ig/post4.webp" width="480" height="480" loading="lazy" alt="Post Instagram J@M: buon 1 maggio"></a>
-        <a href="https://www.instagram.com/p/Crixo3sRKEU/" rel="noopener"><img src="assets/ig/post5.webp" width="480" height="480" loading="lazy" alt="Post Instagram J@M: noleggio auto full-electric"></a>
-        <a href="https://www.instagram.com/p/CrbTRQpNmAp/" rel="noopener"><img src="assets/ig/post6.webp" width="480" height="480" loading="lazy" alt="Post Instagram J@M: test dei pannelli fotovoltaici"></a>
-        <a href="https://www.instagram.com/reel/CrRLMLSOD-r/" rel="noopener"><img src="assets/ig/post7.webp" width="480" height="480" loading="lazy" alt="Post Instagram J@M: sistemi di accumulo"></a>
-        <a href="https://www.instagram.com/p/CrJKpxIR84C/" rel="noopener"><img src="assets/ig/post8.webp" width="480" height="480" loading="lazy" alt="Post Instagram J@M: fotovoltaico con batteria d'accumulo"></a>
-      </div>
-    </div>
-  </section>
+<section id="mood">
+  <div class="mood-band"><div class="art-wrap"><div class="art dim" style="background-image:url(/jam-sito/assets/img/art-lichtenstein.webp)"></div></div><div class="pattern"></div><h2>Mood</h2><span class="credit">Roy Lichtenstein · Museo J@M</span></div>
+  <div class="tvh pad-s"><div class="wrap">
+    <div data-reveal><p class="eyebrow">J@M Mood</p><h2 class="mt">TV</h2><p class="lede mt">Tutto ciò che è J@M è online. Fatti prendere da J@M!</p><div class="mt2"><a class="btn btn-outline" href="/jam-sito/jm-mood/tv/">tutti i video <svg><use href="#i-chev"/></svg></a></div></div>
+    <div class="tv-set" data-reveal><img src="/jam-sito/assets/tv.webp" width="1080" height="1080" alt="Il televisore di J@M"><div class="screen"><iframe src="https://player.vimeo.com/video/512464979?dnt=1&title=0&byline=0&portrait=0&color=ff6a00" title="Video J@M" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div></div>
+  </div></div>
+</section>
 
-  <section class="villaggi" id="villaggi" aria-labelledby="vill-title">
-    <div class="wrap">
-      <img class="villaggi-art" src="assets/villaggi.webp" width="1000" height="1163" alt="Una ragazza pianta la bandiera J@M sulla cima di una montagna, con le città sullo sfondo" data-reveal>
-      <div data-reveal>
-        <p class="eyebrow">I villaggi</p>
-        <h2 id="vill-title" style="margin-top:14px">Una rete di villaggi</h2>
-        <p class="lede">Virtuali e fisici. Per J@M non esistono vincoli territoriali o di possibilità e le sue basi strategiche sono avamposti sulla terra ferma. E brulicano di vita.</p>
-        <div style="margin-top:26px"><a class="btn btn-primary" data-spark href="https://goo.gl/maps/fMUuxLyYvvjXLSaB6" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg> trovaci</a></div>
-      </div>
-    </div>
-  </section>
+<section class="pad-s"><div class="wrap"><div class="museo-head" data-reveal><p class="eyebrow">J@M Mood</p><h2>Museo</h2><p class="lede">J@M è uno specchio di così tante personalità ed esperienze diverse che non potrà mai restare identica a sé stessa a lungo.</p><div class="ctas"><a class="btn btn-primary" href="/jam-sito/jm-mood/museo/">fatti ispirare</a></div></div></div></section>
+<section class="wall-pin" id="museo-parete"><div class="wall-stage"><div class="wall-track"><figure><img src="/jam-sito/assets/museo/01-liechtenstein.webp" width="640" height="640" loading="lazy" alt="Comics, Roy Lichtenstein, reinterpretato da J@M"><figcaption><b>Comics</b>Roy Lichtenstein, 1963 · Milano</figcaption></figure><figure><img src="/jam-sito/assets/museo/02-haring.webp" width="640" height="640" loading="lazy" alt="Senza titolo, Keith Haring, reinterpretato da J@M"><figcaption><b>Senza titolo</b>Keith Haring · Milano</figcaption></figure><figure><img src="/jam-sito/assets/museo/03-rousseau.webp" width="640" height="640" loading="lazy" alt="L’incantatrice di serpenti, Henri Rousseau, reinterpretato da J@M"><figcaption><b>L’incantatrice di serpenti</b>Henri Rousseau, 1907 · Milano</figcaption></figure><figure><img src="/jam-sito/assets/museo/04-ligabue-leopardo-assalito-da-un-serpente.webp" width="640" height="640" loading="lazy" alt="Leopardo assalito da un serpente, Antonio Ligabue, reinterpretato da J@M"><figcaption><b>Leopardo assalito da un serpente</b>Antonio Ligabue, 1957 · Padova</figcaption></figure><figure><img src="/jam-sito/assets/museo/05-south-park.webp" width="640" height="640" loading="lazy" alt="South Park, Trey Parker e Matt Stone, reinterpretato da J@M"><figcaption><b>South Park</b>Trey Parker e Matt Stone, 1992 · Milano</figcaption></figure><figure><img src="/jam-sito/assets/museo/06-hopper.webp" width="640" height="640" loading="lazy" alt="I nottambuli, Edward Hopper, reinterpretato da J@M"><figcaption><b>I nottambuli</b>Edward Hopper, 1942 · Milano</figcaption></figure><figure><img src="/jam-sito/assets/museo/07-miro.webp" width="640" height="640" loading="lazy" alt="Il carnevale di Arlecchino, Joan Miró, reinterpretato da J@M"><figcaption><b>Il carnevale di Arlecchino</b>Joan Miró, 1925 · Milano</figcaption></figure><figure><img src="/jam-sito/assets/museo/08-dylan-dog-il-lungo-addio.webp" width="640" height="640" loading="lazy" alt="Il lungo addio, Dylan Dog, reinterpretato da J@M"><figcaption><b>Il lungo addio</b>Dylan Dog, 1992 · Milano</figcaption></figure><figure><img src="/jam-sito/assets/museo/09-hokusai-la-grande-onda.webp" width="640" height="640" loading="lazy" alt="La grande onda, Hokusai, reinterpretato da J@M"><figcaption><b>La grande onda</b>Hokusai, 1831 · Milano</figcaption></figure><figure><img src="/jam-sito/assets/museo/10-picasso.webp" width="640" height="640" loading="lazy" alt="Les demoiselles d’Avignon, Pablo Picasso, reinterpretato da J@M"><figcaption><b>Les demoiselles d’Avignon</b>Pablo Picasso, 1907 · Milano</figcaption></figure><figure><img src="/jam-sito/assets/museo/11-van-gogh-notte-stellata150x1185cm.webp" width="640" height="640" loading="lazy" alt="Notte stellata, Vincent van Gogh, reinterpretato da J@M"><figcaption><b>Notte stellata</b>Vincent van Gogh, 1889 · Milano</figcaption></figure><figure><img src="/jam-sito/assets/museo/12-klimt-def-15-01-2016.webp" width="640" height="640" loading="lazy" alt="Il bacio, Gustav Klimt, reinterpretato da J@M"><figcaption><b>Il bacio</b>Gustav Klimt, 1907 · Milano</figcaption></figure><figure><img src="/jam-sito/assets/museo/13-piero-della-francesca.webp" width="640" height="640" loading="lazy" alt="La città ideale, Piero della Francesca, reinterpretato da J@M"><figcaption><b>La città ideale</b>Piero della Francesca, 1420 · Roma</figcaption></figure><figure><img src="/jam-sito/assets/museo/14-lempicka.webp" width="640" height="640" loading="lazy" alt="Primavera, Tamara de Lempicka, reinterpretato da J@M"><figcaption><b>Primavera</b>Tamara de Lempicka, 1928 · Bologna</figcaption></figure></div></div></section>
 
-  <section class="contact" id="contatti" aria-labelledby="contact-title">
-    <div class="wrap">
-      <div data-reveal>
-        <p class="eyebrow">Contatti</p>
-        <h2 id="contact-title" style="margin-top:14px">Vuoi chiederci qualcosa?</h2>
-        <p class="lede">Compila il form e ti ricontatteremo presto per fornirti tutte le informazioni di cui hai bisogno.</p>
-        <img class="contact-mascot" src="assets/mascotte.webp" width="444" height="363" alt="">
-      </div>
-      <form class="panel" id="contactForm" novalidate data-reveal>
-        <div class="field"><label for="c-nome">Nome Cognome / Ragione sociale</label><input id="c-nome" name="nome" type="text" autocomplete="name" required></div>
-        <div class="row2">
-          <div class="field"><label for="c-email">La tua email</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
-          <div class="field"><label for="c-tel">Il tuo telefono</label><input id="c-tel" name="telefono" type="tel" autocomplete="tel" required></div>
-        </div>
-        <div class="field"><label for="c-msg">Il tuo messaggio (facoltativo)</label><textarea id="c-msg" name="messaggio"></textarea></div>
-        <button class="btn btn-red" data-spark type="submit">invia</button>
-        <p class="sent" id="sent" role="status"></p>
-        <p class="legal">Cliccando su invia dichiari di aver preso visione e di accettare la nostra <a href="https://www.iubenda.com/privacy-policy/91688595" rel="noopener">privacy policy</a>.</p>
-      </form>
-    </div>
-  </section>
+<section class="art-band"><div class="art-wrap"><div class="art-zoom"><div class="art dim" style="background-image:url(/jam-sito/assets/img/art-botticelli.webp)"></div><div class="art lit" style="background-image:url(/jam-sito/assets/img/art-botticelli.webp)"></div></div></div><div class="veil"></div><div class="wrap"><p class="eyebrow">La nostra community</p><blockquote>Se nasce una nuova piattaforma, un nuovo modo di connettersi, noi vogliamo essere i primi a scoprirla… per questo siamo ovunque.</blockquote><div class="socials" data-stagger>
+<a href="https://www.linkedin.com/company/j-m-srl/" rel="noopener"><svg><use href="#i-in"/></svg>LinkedIn</a>
+<a href="https://www.facebook.com/jam.srl" rel="noopener"><svg><use href="#i-fb"/></svg>Facebook</a>
+<a href="https://www.instagram.com/jamsrl/" rel="noopener"><svg><use href="#i-ig"/></svg>Instagram</a>
+<a href="https://vimeo.com/jamsrl" rel="noopener"><svg><use href="#i-vimeo"/></svg>Vimeo</a>
+<a href="https://www.tiktok.com/@jampassion" rel="noopener"><svg><use href="#i-tt"/></svg>TikTok</a>
+<a href="https://twitter.com/jam_passion?lang=it" rel="noopener"><svg><use href="#i-xt"/></svg>X / Twitter</a></div></div><span class="credit">Sandro Botticelli, La primavera · Museo J@M</span></section>
+<section class="ig-band"><div class="wrap"><p class="ig-title" data-reveal><small>Instagram</small>fatti prendere da j@m</p><div class="ig" data-stagger><a href="https://www.instagram.com/p/CsjAX24RmLF/" rel="noopener"><img src="/jam-sito/assets/ig/post1.webp" width="480" height="480" loading="lazy" alt="Post Instagram J@M: IoT e Machine To Machine per la tua azienda"></a><a href="https://www.instagram.com/p/CsQcI6FoL43/" rel="noopener"><img src="/jam-sito/assets/ig/post2.webp" width="480" height="480" loading="lazy" alt="Post Instagram J@M: i vantaggi del fotovoltaico"></a><a href="https://www.instagram.com/p/Cr_LWgYx3Cc/" rel="noopener"><img src="/jam-sito/assets/ig/post3.webp" width="480" height="480" loading="lazy" alt="Post Instagram J@M: consulenza energetica gratuita"></a><a href="https://www.instagram.com/p/CrtB_uCRgoX/" rel="noopener"><img src="/jam-sito/assets/ig/post4.webp" width="480" height="480" loading="lazy" alt="Post Instagram J@M: buon 1 maggio"></a><a href="https://www.instagram.com/p/Crixo3sRKEU/" rel="noopener"><img src="/jam-sito/assets/ig/post5.webp" width="480" height="480" loading="lazy" alt="Post Instagram J@M: noleggio auto full-electric"></a><a href="https://www.instagram.com/p/CrbTRQpNmAp/" rel="noopener"><img src="/jam-sito/assets/ig/post6.webp" width="480" height="480" loading="lazy" alt="Post Instagram J@M: test dei pannelli fotovoltaici"></a><a href="https://www.instagram.com/reel/CrRLMLSOD-r/" rel="noopener"><img src="/jam-sito/assets/ig/post7.webp" width="480" height="480" loading="lazy" alt="Post Instagram J@M: sistemi di accumulo"></a><a href="https://www.instagram.com/p/CrJKpxIR84C/" rel="noopener"><img src="/jam-sito/assets/ig/post8.webp" width="480" height="480" loading="lazy" alt="Post Instagram J@M: fotovoltaico con batteria d'accumulo"></a></div></div></section>
+
+<section class="art-band villaggi" id="villaggi"><div class="art-wrap"><div class="art dim" style="background-image:url(/jam-sito/assets/img/art-magritte-golconda.webp)"></div><div class="art lit" style="background-image:url(/jam-sito/assets/img/art-magritte-golconda.webp)"></div></div><div class="veil"></div><div class="wrap">
+  <img class="villaggi-art" src="/jam-sito/assets/villaggi.webp" width="1000" height="1163" alt="Una ragazza pianta la bandiera J@M sulla cima di una montagna" data-float="30" data-reveal>
+  <div data-reveal><p class="eyebrow">I villaggi</p><h2 class="mt">Una rete di villaggi</h2><p class="lede mt">Virtuali e fisici. Per J@M non esistono vincoli territoriali o di possibilità e le sue basi strategiche sono avamposti sulla terra ferma. E brulicano di vita.</p><div class="ctas mt2"><a class="btn btn-primary" href="/jam-sito/i-villaggi/"><svg><use href="#i-pin"/></svg> trovaci</a></div></div>
+</div><span class="credit">René Magritte, Golconda · Museo J@M</span></section>
+
+<section class="contact" id="contatti"><div class="wrap">
+  <div data-reveal><p class="eyebrow">Contatti</p><h2 class="mt">Vuoi chiederci qualcosa?</h2><p class="lede">Compila il form e ti ricontatteremo presto per fornirti tutte le informazioni di cui hai bisogno.</p><a class="phone" href="tel:02898094"><svg><use href="#i-phone"/></svg>02 898094</a><img class="contact-mascot" src="/jam-sito/assets/mascotte.webp" width="444" height="363" alt=""></div>
+  <form class="panel" novalidate data-reveal data-subject="Richiesta dal sito J@M">
+    <div class="field"><label for="c-nome">Nome Cognome / Ragione sociale</label><input id="c-nome" name="nome" type="text" autocomplete="name" required></div>
+    <div class="row2"><div class="field"><label for="c-email">La tua email</label><input id="c-email" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="c-tel">Il tuo telefono</label><input id="c-tel" name="telefono" type="tel" autocomplete="tel" required></div></div>
+    <div class="field"><label for="c-msg">Il tuo messaggio (facoltativo)</label><textarea id="c-msg" name="messaggio"></textarea></div>
+    <button class="btn btn-red" type="submit">invia</button><p class="sent" role="status"></p>
+    <p class="legal">Cliccando su invia dichiari di aver preso visione e di accettare la nostra <a href="https://www.iubenda.com/privacy-policy/91688595" rel="noopener">privacy policy</a>.</p>
+  </form>
+</div></section>
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Opera ingrandita"><figure style="margin:0"><img src="" alt=""><figcaption></figcaption></figure></div>
+
 </main>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="grid">
-      <nav aria-label="Footer">
-        <a href="#isola">L’isola</a>
-        <a href="#passioni">Passioni</a>
-        <a href="#mood">Mood</a>
-        <a href="#villaggi">I villaggi</a>
-        <a href="https://www.iubenda.com/privacy-policy/91688595" rel="noopener">Privacy policy</a>
-        <a href="https://www.iubenda.com/privacy-policy/91688595/cookie-policy" rel="noopener">Utilizzo dei cookie</a>
-      </nav>
-      <div class="brand">
-        <img src="assets/logo.webp" width="506" height="287" alt="J@M Passion">
-        <span class="claim">mettici passione</span>
-      </div>
-      <div class="addr">
-        <a href="https://www.google.com/maps/place/J@M+SRL/@45.4402045,9.1993427,15z" rel="noopener">Via Rutilia 2,4<br>20141 - Milano (MI)</a>
-        <a href="mailto:jam@jam-srl.it">jam@jam-srl.it</a>
-        <a href="tel:02898094">02 898094</a>
-        <a href="tel:0289809480">02 89809480</a>
-      </div>
-    </div>
-    <p class="rights">Tutti i diritti riservati © J@M srl · P.IVA 13329170156 · Designed by J@M</p>
+<footer class="site-footer"><div class="wrap">
+  <div class="grid">
+    <nav aria-label="Footer"><a href="/jam-sito/lisola/">L’isola</a><a href="/jam-sito/passioni/">Passioni</a><a href="/jam-sito/jm-mood/">Mood</a><a href="/jam-sito/i-villaggi/">I villaggi</a><a href="https://www.iubenda.com/privacy-policy/91688595" rel="noopener">Privacy policy</a><a href="https://www.iubenda.com/privacy-policy/91688595/cookie-policy" rel="noopener">Utilizzo dei cookie</a></nav>
+    <div class="brand"><img src="/jam-sito/assets/logo.webp" width="506" height="287" alt="J@M Passion"><span class="claim">mettici passione</span></div>
+    <div class="addr"><a href="https://www.google.com/maps/place/J@M+SRL/@45.4402045,9.1993427,15z" rel="noopener">Via Rutilia 2,4<br>20141 - Milano (MI)</a><a href="mailto:jam@jam-srl.it">jam@jam-srl.it</a><a href="tel:02898094">02 898094</a><a href="tel:0289809480">02 89809480</a></div>
   </div>
-</footer>
+  <p class="rights">Tutti i diritti riservati © J@M srl · P.IVA 13329170156 · Designed by J@M</p>
+</div></footer>
+<button class="totop" id="totop" aria-label="Torna su"><img src="/jam-sito/assets/mascotte-mini.webp" width="100" height="87" alt=""></button>
+<img class="guide" id="guide" src="/jam-sito/assets/img/girl-standing.webp" width="246" height="655" alt="">
 
-<button class="totop" id="totop" aria-label="Torna su"><img src="assets/mascotte-mini.webp" width="100" height="87" alt=""></button>
-
-<script>
-(function () {
-  "use strict";
-  var body = document.body; body.classList.add("js");
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var fine = window.matchMedia("(pointer: fine)").matches;
-  var isMobile = window.matchMedia("(max-width: 700px)").matches;
-  var clamp = function (v, a, b) { return Math.max(a, Math.min(b, v)); };
-  var ease = function (t) { return t < 0 ? 0 : t > 1 ? 1 : 1 - Math.pow(1 - t, 3); };
-
-  /* ---------- HERO: "Testa, cuore e spirito d'iniziativa" fatto di particelle ---------- */
-  var LINES = ["TESTA, CUORE", "E SPIRITO", "D'INIZIATIVA"];
-  var PALETTE = ["#FF2D4A", "#D82E00", "#FF6A00", "#FFB300", "#FFF1E0"];
-  var WEIGHTS = [0.30, 0.26, 0.24, 0.13, 0.07];
-  var hero = document.getElementById("home"), canvas = document.getElementById("heroCanvas"), slot = document.getElementById("wordSlot");
-  var ctx = canvas.getContext("2d", { alpha: false });
-  var off = document.createElement("canvas"), octx = off.getContext("2d", { willReadFrequently: true });
-  var dpr = Math.min(window.devicePixelRatio || 1, 2);
-  var W = 0, H = 0, N = isMobile ? 2200 : 4200, STEP = isMobile ? 3 : 5, SIZE = isMobile ? 1.7 : 2.2;
-  var parts = [], mouse = { x: -9999, y: -9999 };
-  var state = "form", stateT = 0, running = true, raf = 0, ready = false;
-  var HOLD = 4200, FORM = 1400, EXPLODE = 850;
-
-  function pickColor() { var r = Math.random(), acc = 0; for (var i = 0; i < WEIGHTS.length; i++) { acc += WEIGHTS[i]; if (r <= acc) return i; } return 0; }
-  function resize() {
-    var r = hero.getBoundingClientRect(); W = Math.max(1, Math.round(r.width)); H = Math.max(1, Math.round(r.height));
-    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.fillStyle = "#050403"; ctx.fillRect(0, 0, W, H);
-  }
-  function sample() {
-    var s = slot.getBoundingClientRect(), hr = hero.getBoundingClientRect();
-    var maxW = Math.max(40, s.width), maxH = Math.max(60, s.height), lineH = maxH / LINES.length, fs = lineH * 0.9;
-    off.width = Math.ceil(maxW); off.height = Math.ceil(maxH);
-    var font = function (px) { return "800 " + px + "px Geist, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"; };
-    octx.font = font(fs);
-    var widest = 0; LINES.forEach(function (l) { widest = Math.max(widest, octx.measureText(l).width); });
-    if (widest > maxW * 0.96) { fs = fs * (maxW * 0.96 / widest); octx.font = font(fs); }
-    octx.clearRect(0, 0, off.width, off.height); octx.fillStyle = "#fff"; octx.textBaseline = "alphabetic";
-    LINES.forEach(function (l, i) { var w = octx.measureText(l).width; octx.fillText(l, Math.round((maxW - w) / 2), Math.round(lineH * i + lineH * 0.82)); });
-    var d = octx.getImageData(0, 0, off.width, off.height).data, pts = [];
-    var ox = s.left - hr.left, oy = s.top - hr.top;
-    for (var y = 0; y < off.height; y += STEP) for (var x = 0; x < off.width; x += STEP) if (d[(y * off.width + x) * 4 + 3] > 120) pts.push(x + ox, y + oy);
-    return pts;
-  }
-  function makeParts() { parts = []; for (var i = 0; i < N; i++) parts.push({ x: Math.random() * W, y: Math.random() * H, vx: 0, vy: 0, tx: 0, ty: 0, c: pickColor(), s: SIZE, a: 1, dust: false }); }
-  function assign() {
-    var pts = sample(), n = pts.length / 2, k = Math.max(1, Math.ceil(n / N));
-    for (var i = 0; i < N; i++) {
-      var p = parts[i], idx = (i * k) % n;
-      if (i * k < n) { p.tx = pts[idx * 2] + (Math.random() - .5); p.ty = pts[idx * 2 + 1] + (Math.random() - .5); p.dust = false; p.s = SIZE; p.a = 1; }
-      else { p.tx = Math.random() * W; p.ty = Math.random() * H; p.dust = true; p.s = SIZE * 0.55; p.a = 0.22; }
-    }
-  }
-  function explode() {
-    var cx = 0, cy = 0, n = 0, i, p;
-    for (i = 0; i < N; i++) if (!parts[i].dust) { cx += parts[i].x; cy += parts[i].y; n++; }
-    cx /= (n || 1); cy /= (n || 1);
-    for (i = 0; i < N; i++) {
-      p = parts[i]; var dx = p.x - cx, dy = p.y - cy, d = Math.sqrt(dx * dx + dy * dy) || 1, f = p.dust ? 1.5 : (6 + Math.random() * 15);
-      p.vx = (dx / d) * f + (Math.random() - .5) * 7; p.vy = (dy / d) * f + (Math.random() - .5) * 7;
-    }
-    state = "explode"; stateT = performance.now();
-  }
-  function step(now) {
-    if (!running) return; raf = requestAnimationFrame(step);
-    if (state === "form" && now - stateT > FORM) { state = "hold"; stateT = now; }
-    else if (state === "hold" && now - stateT > HOLD && !reduce) explode();
-    else if (state === "explode" && now - stateT > EXPLODE) { assign(); state = "form"; stateT = now; }
-    ctx.globalCompositeOperation = "source-over";
-    ctx.fillStyle = state === "explode" ? "rgba(5,4,3,0.26)" : "rgba(5,4,3,0.5)"; ctx.fillRect(0, 0, W, H);
-    ctx.globalCompositeOperation = "lighter";
-    var mx = mouse.x, my = mouse.y, R = 120, R2 = R * R, i, p;
-    for (i = 0; i < N; i++) {
-      p = parts[i];
-      if (state === "explode") { p.vx *= 0.955; p.vy *= 0.955; p.x += p.vx; p.y += p.vy; }
-      else {
-        var k = p.dust ? 0.02 : 0.08;
-        p.vx = (p.vx + (p.tx - p.x) * k) * 0.76; p.vy = (p.vy + (p.ty - p.y) * k) * 0.76;
-        if (state === "hold" && !p.dust) { p.vx += (Math.random() - .5) * 0.45; p.vy += (Math.random() - .5) * 0.45; }
-        var dx = p.x - mx, dy = p.y - my, d2 = dx * dx + dy * dy;
-        if (d2 < R2) { var d = Math.sqrt(d2) || 1, f = (R - d) / R * 4.5; p.vx += (dx / d) * f; p.vy += (dy / d) * f; }
-        p.x += p.vx; p.y += p.vy;
-      }
-    }
-    for (var c = 0; c < PALETTE.length; c++) { ctx.fillStyle = PALETTE[c]; for (i = 0; i < N; i++) { p = parts[i]; if (p.c !== c) continue; ctx.globalAlpha = p.a; ctx.fillRect(p.x, p.y, p.s, p.s); } }
-    ctx.globalAlpha = 1;
-  }
-  function start() { resize(); makeParts(); assign(); state = "form"; stateT = performance.now(); ready = true; if (!raf) raf = requestAnimationFrame(step); }
-  hero.addEventListener("pointermove", function (e) { var r = hero.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
-  hero.addEventListener("pointerleave", function () { mouse.x = -9999; mouse.y = -9999; });
-  hero.addEventListener("click", function (e) { if (e.target.closest("a, button")) return; if (ready && state !== "explode") explode(); });
-  var rT; window.addEventListener("resize", function () { clearTimeout(rT); rT = setTimeout(function () { if (ready) { resize(); assign(); } }, 150); });
-  function setRun(on) { running = on; if (on && ready && !raf) raf = requestAnimationFrame(step); if (!on) { cancelAnimationFrame(raf); raf = 0; } }
-  new IntersectionObserver(function (en) { setRun(en[0].isIntersecting && !document.hidden); }).observe(hero);
-  document.addEventListener("visibilitychange", function () { setRun(!document.hidden); });
-  var fontsReady = (document.fonts && document.fonts.load) ? document.fonts.load("800 100px Geist") : Promise.resolve();
-  var started = false; function once() { if (!started) { started = true; start(); } }
-  fontsReady.then(once, once); setTimeout(once, 1800);
-
-  /* La mascotte segue un po' il mouse */
-  var mascot = document.getElementById("heroMascot");
-  if (fine && !reduce) hero.addEventListener("pointermove", function (e) { var r = hero.getBoundingClientRect(); var dx = (e.clientX - r.left) / r.width - 0.5, dy = (e.clientY - r.top) / r.height - 0.5; mascot.style.translate = (dx * -24) + "px " + (dy * -16) + "px"; });
-
-  /* ---------- Header / menu / torna su ---------- */
-  var top = document.getElementById("top"), totop = document.getElementById("totop");
-  var burger = document.getElementById("burger"), menu = document.getElementById("menu"), menuClose = document.getElementById("menuClose");
-  function setMenu(o) { menu.classList.toggle("open", o); burger.setAttribute("aria-expanded", o ? "true" : "false"); body.style.overflow = o ? "hidden" : ""; }
-  burger.addEventListener("click", function () { setMenu(true); });
-  menuClose.addEventListener("click", function () { setMenu(false); });
-  menu.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
-  totop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" }); });
-  function topbar() { var y = window.scrollY; top.classList.toggle("solid", y > 30); totop.classList.toggle("show", y > window.innerHeight * 0.8); }
-
-  /* ---------- Scintille sui bottoni ---------- */
-  function sparks(x, y, n) {
-    if (reduce) return;
-    var cols = ["#FF2D4A", "#FF6A00", "#FFB300", "#FFF1E0"];
-    for (var i = 0; i < n; i++) {
-      var s = document.createElement("span"); s.className = "spark"; s.style.left = x + "px"; s.style.top = y + "px"; s.style.background = cols[i % cols.length];
-      document.body.appendChild(s);
-      var ang = Math.random() * Math.PI * 2, dist = 30 + Math.random() * 80, dur = 450 + Math.random() * 400;
-      s.animate([{ transform: "translate(-50%,-50%) scale(1)", opacity: 1 }, { transform: "translate(" + (Math.cos(ang) * dist) + "px," + (Math.sin(ang) * dist) + "px) scale(0)", opacity: 0 }], { duration: dur, easing: "cubic-bezier(.2,.7,.2,1)" }).onfinish = function () { this.effect.target.remove(); };
-    }
-  }
-  document.querySelectorAll("[data-spark]").forEach(function (b) { b.addEventListener("click", function (e) { sparks(e.clientX, e.clientY, 26); }); });
-
-  /* ---------- Scene guidate dallo scroll: l'isola emerge, il Museo si accende ---------- */
-  var isolaSec = document.getElementById("isola"), isolaArt = document.getElementById("isolaArt");
-  var museo = document.getElementById("museo"), museoArt = document.getElementById("museoArt");
-  function progress(sec) { var r = sec.getBoundingClientRect(), vh = window.innerHeight; return clamp(-r.top / (r.height - vh), 0, 1); }
-  var t0 = performance.now();
-  function scene(now) {
-    var vh = window.innerHeight;
-    var p = progress(isolaSec), e = ease(clamp(p / 0.6, 0, 1));
-    var bob = Math.sin((now - t0) / 900) * 6 * e;
-    isolaArt.style.transform = "translateY(" + ((1 - e) * vh * 0.75 + bob) + "px) scale(" + (0.85 + e * 0.15) + ")";
-    var r = museo.getBoundingClientRect(), q = clamp((vh - r.top) / (r.height + vh * 0.2), 0, 1), qe = ease(q);
-    museoArt.style.transform = "scale(" + (1.12 - qe * 0.12) + ")";
-    museoArt.style.filter = "saturate(" + (0.2 + qe * 0.8) + ") brightness(" + (0.55 + qe * 0.45) + ")";
-  }
-  if (reduce) {
-    isolaArt.style.transform = "none"; museoArt.style.transform = "none"; museoArt.style.filter = "none";
-    document.querySelectorAll(".pin").forEach(function (s) { s.style.height = "auto"; }); document.querySelectorAll(".pin .stage").forEach(function (s) { s.style.position = "relative"; s.style.height = "auto"; s.style.paddingBlock = "120px"; });
-    topbar(); window.addEventListener("scroll", topbar, { passive: true });
-  } else {
-    (function loop(now) { scene(now); topbar(); requestAnimationFrame(loop); })(performance.now());
-  }
-
-  /* ---------- Passioni: luce che segue il mouse, frecce ---------- */
-  document.querySelectorAll(".card").forEach(function (c) {
-    if (fine && !reduce) c.addEventListener("pointermove", function (e) { var r = c.getBoundingClientRect(); c.style.setProperty("--mx", ((e.clientX - r.left) / r.width * 100) + "%"); c.style.setProperty("--my", ((e.clientY - r.top) / r.height * 100) + "%"); });
-  });
-  var tr = document.getElementById("track");
-  document.getElementById("prevCard").addEventListener("click", function () { tr.scrollBy({ left: -400, behavior: "smooth" }); });
-  document.getElementById("nextCard").addEventListener("click", function () { tr.scrollBy({ left: 400, behavior: "smooth" }); });
-
-  /* ---------- Reveal ---------- */
-  var io = new IntersectionObserver(function (en) { en.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
-  document.querySelectorAll("[data-reveal], [data-stagger]").forEach(function (el) { io.observe(el); });
-
-  /* ---------- Form: apre la posta con la richiesta compilata ---------- */
-  var CONTACT_EMAIL = "jam@jam-srl.it";
-  var form = document.getElementById("contactForm"), sent = document.getElementById("sent");
-  form.addEventListener("submit", function (e) {
-    e.preventDefault(); var ok = true;
-    form.querySelectorAll("[required]").forEach(function (el) { var bad = !el.value.trim() || (el.type === "email" && el.value.indexOf("@") === -1); el.style.borderColor = bad ? "#D82E00" : ""; if (bad) ok = false; });
-    if (!ok) { sent.textContent = "Controlla i campi evidenziati in rosso."; sent.classList.add("show"); return; }
-    var v = function (id) { return document.getElementById(id).value.trim(); };
-    var NL = String.fromCharCode(10);
-    var subject = "Richiesta dal sito J@M";
-    var bodyTxt = "Nome: " + v("c-nome") + NL + "Email: " + v("c-email") + NL + "Telefono: " + v("c-tel") + NL + NL + (v("c-msg") || "(nessun messaggio)");
-    window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(bodyTxt);
-    sent.textContent = "Si apre la tua posta con la richiesta pronta: basta premere Invia. Se non si apre, scrivi a " + CONTACT_EMAIL + " o chiama lo 02 898094.";
-    sent.classList.add("show");
-  });
-})();
-</script>
+<script src="/jam-sito/assets/site.js" defer></script>
+<script src="/jam-sito/assets/home.js" defer></script>
+<script>document.addEventListener("DOMContentLoaded",function(){var t=document.getElementById("track");document.getElementById("prevCard").addEventListener("click",function(){t.scrollBy({left:-400,behavior:"smooth"})});document.getElementById("nextCard").addEventListener("click",function(){t.scrollBy({left:400,behavior:"smooth"})});});</script>
 </body>
 </html>

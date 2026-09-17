@@ -1,9 +1,20 @@
-# J@M — proposta di nuovo sito
+# J@M — nuovo sito
 
-Rifacimento della home di [jam-srl.it](https://www.jam-srl.it/) con gli stessi contenuti e le grafiche originali di J@M (logo, mascotte, isola, TV, pattern Mood, opera del Museo), ripulite e alleggerite.
+Rifacimento completo di [jam-srl.it](https://www.jam-srl.it/) con gli stessi contenuti, le stesse pagine (stessi indirizzi) e le grafiche originali di J@M: logo, mascotte, illustrazioni della ragazza dai capelli rossi, le sedi, e le opere del Museo J@M (Escher, Vettriano, Magritte, Botticelli, Lichtenstein, Yerka, Amano…).
 
-- Un solo file `index.html` + cartella `assets/` (immagini WebP). Nessuna dipendenza oltre ai font Google e al player Vimeo dentro la TV.
-- Titolo "Testa, cuore e spirito d'iniziativa" fatto di particelle (Canvas): esplode e si ricompone; un clic lo fa esplodere.
-- L'isola emerge dal mare mentre scorri; il Museo si accende avvicinandosi.
-- Per aggiornare il sito: modifica `index.html`, commit e push su `main`. GitHub Pages lo pubblica da solo (workflow in `.github/workflows/pages.yml`).
-- L'indirizzo a cui arrivano le richieste del modulo è la costante `CONTACT_EMAIL` in fondo a `index.html`.
+## Come è fatto
+- `build.py` contiene **tutti i testi** delle pagine e genera i file `index.html` (home + 18 pagine interne).
+- `assets/site.css` e `assets/site.js` sono lo stile e le animazioni comuni; `assets/home.js` è solo per la home (titolo di particelle).
+- `assets/img/` illustrazioni e opere (WebP), `assets/museo/` i 34 quadri, `assets/ig/` le foto Instagram.
+
+## Come si aggiorna
+1. Modifica il testo in `build.py` (o un'immagine in `assets/`).
+2. Esegui `python build.py` (rigenera tutte le pagine).
+3. Commit e push su `main`: GitHub Pages pubblica da solo (workflow `.github/workflows/pages.yml`).
+
+Per usare un dominio proprio (es. jam-srl.it) basta mettere `BASE = ""` in `build.py` e rigenerare.
+
+## Effetti
+- Home: titolo "Testa, cuore e spirito d'iniziativa" fatto di particelle sopra *Giorno e notte* di Escher (clic = esplosione), sipario sul Vettriano, isola che emerge sopra *Convesso e concavo*, parete del Museo che scorre, Botticelli e Magritte come sfondi animati.
+- Ogni pagina: opera d'arte con "faro" che segue il mouse e parallasse, ragazza dai capelli rossi che accompagna lo scroll e guarda verso il mouse, illustrazioni fluttuanti, frasi che si accendono parola per parola.
+- Il modulo contatti apre la posta con la richiesta compilata (indirizzo in `CONTACT_EMAIL` dentro `assets/site.js`).
