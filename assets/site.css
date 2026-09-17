@@ -286,6 +286,8 @@ body.js [data-stagger].in > :nth-child(6) { transition-delay: .4s; } body.js [da
   .row2 { grid-template-columns: 1fr; }
   .ig { gap: 6px; }
   .art-hero { min-height: 74svh; padding-top: calc(100px + env(safe-area-inset-top, 0px)); }
+  .art-hero .art.dim { filter: brightness(.3) saturate(.8); }
+  .art-hero .veil { background: linear-gradient(to top, var(--bg) 0%, rgba(5,4,3,.78) 42%, rgba(5,4,3,.3) 75%, rgba(5,4,3,.5) 100%); }
   .art.lit { -webkit-mask: radial-gradient(circle 200px at var(--mx, 50%) var(--my, 45%), #000 0%, rgba(0,0,0,.55) 40%, transparent 100%); mask: radial-gradient(circle 200px at var(--mx, 50%) var(--my, 45%), #000 0%, rgba(0,0,0,.55) 40%, transparent 100%); }
   .guide { width: 58px; }
 }
