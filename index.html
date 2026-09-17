@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>J@M — Un solo consulente per luce, gas, fotovoltaico, telefonia e auto</title>
+<meta name="description" content="J@M, Milano dal 2001: consulenza gratuita per casa, azienda e condominio. Luce e gas, fotovoltaico, telefonia, noleggio auto, sito web. Un solo referente, zero pensieri.">
+<meta name="theme-color" content="#050403">
+<meta property="og:type" content="website">
+<meta property="og:title" content="J@M — Un solo consulente, zero pensieri">
+<meta property="og:description" content="Luce e gas, fotovoltaico, telefonia, noleggio auto e sito web per casa, azienda e condominio. Consulenza gratuita, Milano dal 2001.">
+<meta property="og:locale" content="it_IT">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍓</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Un solo mondo visivo, deliberato: nero profondo + palette "brace" di J@M. Dipinto esplicitamente, in ogni tema. */
+  :root {
+    --bg: #050403;
+    --bg-2: #0E0B0A;
+    --bg-3: #171210;
+    --paper: #F5F0EC;
+    --muted: #9E938D;
+    --line: rgba(245, 240, 236, 0.10);
+    --red: #D82E00;
+    --ember: #FF6A00;
+    --amber: #FFB300;
+    --berry: #FF3D71;
+    --focus: #FFB300;
+    --sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--paper); font-family: var(--sans); font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  img, svg { max-width: 100%; display: block; }
+  a { color: inherit; }
+  p { margin: 0; }
+  h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.035em; line-height: 1.02; text-wrap: balance; }
+  h2 { font-size: clamp(2.4rem, 6vw, 5.4rem); }
+  h3 { font-size: 1.45rem; letter-spacing: -0.02em; font-weight: 600; }
+  .eyebrow { font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ember); font-weight: 600; }
+  .lede { color: var(--muted); font-size: clamp(1.1rem, 1.6vw, 1.45rem); line-height: 1.45; letter-spacing: -0.01em; }
+  .wrap { max-width: 1240px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 48px); }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+  .grad { background: linear-gradient(92deg, #FF3D1E 0%, #FF6A00 45%, #FFB300 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  /* Bottoni e link, sobri */
+  .btn { display: inline-flex; align-items: center; gap: 8px; justify-content: center; padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: 1rem; text-decoration: none; border: 1px solid transparent; font-family: var(--sans); background: transparent; color: var(--paper); transition: background .2s ease, border-color .2s ease, transform .2s ease, box-shadow .3s ease; white-space: nowrap; }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+  .btn-primary { background: var(--paper); color: #0B0806; }
+  .btn-primary:hover { background: #fff; transform: translateY(-1px); box-shadow: 0 14px 40px -14px rgba(255,255,255,.5); }
+  .btn-red { background: var(--red); color: #fff; }
+  .btn-red:hover { background: var(--ember); transform: translateY(-1px); box-shadow: 0 14px 40px -12px rgba(255,106,0,.7); }
+  .btn-outline { border-color: rgba(245,240,236,.28); }
+  .btn-outline:hover { border-color: var(--paper); }
+  .link { text-decoration: none; color: var(--ember); font-weight: 500; display: inline-flex; align-items: center; gap: 4px; }
+  .link:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .link svg { width: 16px; height: 16px; }
+  .spark { position: fixed; width: 5px; height: 5px; border-radius: 50%; pointer-events: none; z-index: 95; }
+
+  /* Header stile Apple: sottile, sfocato */
+  .top { position: fixed; top: 0; left: 0; right: 0; z-index: 80; padding-top: env(safe-area-inset-top, 0px); background: rgba(5,4,3,.55); backdrop-filter: saturate(180%) blur(18px); -webkit-backdrop-filter: saturate(180%) blur(18px); border-bottom: 1px solid transparent; transition: border-color .3s ease, background .3s ease; }
+  .top.solid { border-color: var(--line); background: rgba(5,4,3,.78); }
+  .top .wrap { display: flex; align-items: center; gap: 30px; height: 52px; }
+  .logo { display: inline-flex; align-items: center; gap: 7px; text-decoration: none; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.05em; }
+  .logo .at { color: var(--red); }
+  .logo .berry { width: 18px; height: 18px; }
+  .nav { display: flex; gap: 26px; margin-left: 6px; }
+  .nav a { text-decoration: none; font-size: .86rem; color: rgba(245,240,236,.78); transition: color .2s ease; }
+  .nav a:hover { color: var(--paper); }
+  .top-actions { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+  .top .btn { padding: 7px 14px; font-size: .82rem; }
+  .top-phone { text-decoration: none; font-size: .86rem; color: rgba(245,240,236,.78); display: inline-flex; align-items: center; gap: 6px; }
+  .top-phone svg { width: 14px; height: 14px; }
+  .burger { display: none; width: 38px; height: 38px; border-radius: 10px; border: 0; background: transparent; color: var(--paper); align-items: center; justify-content: center; cursor: pointer; }
+  .burger svg { width: 22px; height: 22px; }
+  .menu { position: fixed; inset: 0; z-index: 85; background: rgba(5,4,3,.97); display: none; padding: calc(80px + env(safe-area-inset-top, 0px)) 28px 40px; }
+  .menu.open { display: grid; align-content: start; gap: 4px; }
+  .menu a { text-decoration: none; font-weight: 700; font-size: clamp(2rem, 8vw, 3.2rem); letter-spacing: -0.04em; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .menu .close { position: absolute; top: calc(8px + env(safe-area-inset-top, 0px)); right: 16px; display: inline-flex; }
+
+  /* Hero cinematico, centrato */
+  .hero { position: relative; min-height: 100svh; display: grid; align-items: center; justify-items: center; text-align: center; padding: calc(120px + env(safe-area-inset-top, 0px)) 0 96px; overflow: hidden; }
+  .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero .wrap { position: relative; display: grid; justify-items: center; gap: 26px; width: 100%; pointer-events: none; }
+  .hero .wrap > * { pointer-events: auto; }
+  .hero .eyebrow { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+  .hero h1 { font-size: clamp(2.5rem, 6.4vw, 6rem); letter-spacing: -0.045em; display: grid; gap: .08em; justify-items: center; width: 100%; animation: rise 1s .08s cubic-bezier(.2,.7,.2,1) both; }
+  .word-slot { height: clamp(58px, 9.8vw, 138px); width: 100%; position: relative; display: grid; place-items: center; }
+  .word-slot .fallback { font-weight: 800; font-size: clamp(2.6rem, 9vw, 8.4rem); letter-spacing: -0.05em; line-height: 1; white-space: nowrap; }
+  body.js .word-slot .fallback { visibility: hidden; }
+  .hero .lede { max-width: 42ch; animation: rise 1s .18s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; justify-content: center; animation: rise 1s .28s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-hint { position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); display: grid; justify-items: center; gap: 10px; }
+  .hero-hint i { display: block; width: 1px; height: 40px; background: var(--line); position: relative; overflow: hidden; }
+  .hero-hint i::after { content: ""; position: absolute; inset: 0; background: var(--ember); transform: translateY(-100%); animation: drop 1.8s ease-in-out infinite; }
+  .hero-tap { position: absolute; right: clamp(16px, 4vw, 48px); bottom: 26px; font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+  @keyframes drop { 0% { transform: translateY(-100%);} 60% { transform: translateY(100%);} 100% { transform: translateY(100%);} }
+
+  /* Capitoli "pinnati": lo scroll guida la scena */
+  .pin { position: relative; height: 280vh; }
+  .pin .stage { position: sticky; top: 0; height: 100svh; overflow: hidden; display: grid; align-items: center; }
+  .stage .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 96px); align-items: center; width: 100%; }
+  .stage h2 { font-size: clamp(2.3rem, 5.6vw, 5rem); }
+  .stage .lede { margin-top: 18px; max-width: 40ch; }
+  .fx { will-change: transform, opacity; }
+
+  /* Capitolo 1: la bolletta */
+  .bill { position: relative; background: #FBF8F5; color: #17110F; border-radius: 22px; padding: 28px 28px 24px; box-shadow: 0 60px 120px -50px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.06); max-width: 460px; justify-self: center; width: 100%; overflow: hidden; }
+  .bill .bh { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #E6DED8; padding-bottom: 14px; margin-bottom: 8px; }
+  .bill .bh b { font-size: 1.05rem; letter-spacing: -0.02em; }
+  .bill .bh span { font-size: .78rem; color: #8A7B74; }
+  .bill .row { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 13px 10px; margin-inline: -10px; border-radius: 10px; font-size: .98rem; transition: background .35s ease, color .35s ease; position: relative; }
+  .bill .row small { display: block; color: #8A7B74; font-size: .78rem; margin-top: 2px; }
+  .bill .row .pct { font-variant-numeric: tabular-nums; font-weight: 600; color: #4A3F3A; }
+  .bill .row.lit { background: #F1E9E3; }
+  .bill .row.lit.key { background: #FFE6DB; box-shadow: inset 0 0 0 1.5px var(--red); }
+  .bill .row .tag { position: absolute; right: 10px; top: -12px; background: var(--red); color: #fff; font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; opacity: 0; transform: translateY(6px); transition: opacity .35s ease, transform .35s ease; }
+  .bill .row.key.lit .tag { opacity: 1; transform: none; }
+  .bill .tot { display: flex; justify-content: space-between; border-top: 1px solid #E6DED8; margin-top: 8px; padding-top: 14px; font-weight: 700; }
+  .bill .scan { position: absolute; left: 0; right: 0; top: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--ember), transparent); box-shadow: 0 0 24px 4px rgba(255,106,0,.45); opacity: 0; }
+  .bill .note { font-size: .72rem; color: #8A7B74; margin-top: 12px; }
+  .insight { margin-top: 26px; display: grid; gap: 8px; border-left: 2px solid var(--ember); padding-left: 18px; }
+  .insight b { font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -0.03em; line-height: 1; }
+  .insight span { color: var(--muted); }
+
+  /* Capitolo 2: il sole */
+  .sun-stage { justify-items: center; }
+  .sun-stage .stage { place-items: center; text-align: center; }
+  .orb { position: absolute; left: 50%; top: 58%; width: 72vmin; height: 72vmin; border-radius: 50%; transform: translate(-50%, -50%);
+    background: radial-gradient(circle at 50% 45%, #FFF1CF 0%, #FFB300 18%, #FF6A00 42%, #D82E00 62%, rgba(216,46,0,0) 72%);
+    filter: blur(6px); opacity: .95; }
+  .orb::after { content: ""; position: absolute; inset: -18%; border-radius: 50%; background: radial-gradient(circle, rgba(255,106,0,.35), rgba(255,106,0,0) 60%); }
+  .horizon { position: absolute; left: 0; right: 0; top: 58%; height: 50%; background: var(--bg); }
+  .sun-copy { position: relative; display: grid; justify-items: center; gap: 18px; padding-inline: 16px; }
+  .sun-copy h2 { font-size: clamp(2.6rem, 7vw, 6.4rem); }
+  .sun-copy .lede { max-width: 44ch; }
+  .sun-list { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 8px; }
+  .sun-list span { border: 1px solid rgba(245,240,236,.22); border-radius: 999px; padding: 10px 16px; font-size: .95rem; backdrop-filter: blur(6px); background: rgba(5,4,3,.35); }
+
+  /* Servizi: galleria a schede (stile Apple) */
+  .services { padding-block: clamp(90px, 12vw, 160px) clamp(60px, 8vw, 100px); }
+  .services-head { display: grid; gap: 16px; max-width: 760px; margin-bottom: 44px; }
+  .track { display: grid; grid-auto-flow: column; grid-auto-columns: min(380px, 84vw); gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: none; margin-inline: calc(-1 * clamp(16px, 4vw, 48px)); padding-inline: clamp(16px, 4vw, 48px); scroll-padding-inline: clamp(16px, 4vw, 48px); }
+  .track::-webkit-scrollbar { display: none; }
+  .card { --acc: var(--red); scroll-snap-align: start; position: relative; background: var(--bg-3); border-radius: 28px; padding: 30px; min-height: 500px; display: grid; grid-template-rows: auto 1fr auto; gap: 20px; overflow: hidden; text-decoration: none; color: inherit; transition: transform .35s cubic-bezier(.2,.7,.2,1); isolation: isolate; }
+  .card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(520px circle at var(--mx, 85%) var(--my, -10%), color-mix(in srgb, var(--acc) 42%, transparent), transparent 55%); opacity: .55; transition: opacity .35s ease; z-index: -1; }
+  .card:hover { transform: translateY(-6px); }
+  .card:hover::before { opacity: 1; }
+  .card .k { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; display: flex; justify-content: space-between; }
+  .card .k b { color: var(--acc); }
+  .card h3 { font-size: clamp(1.8rem, 2.6vw, 2.3rem); letter-spacing: -0.035em; font-weight: 700; margin-top: 6px; }
+  .card .body { align-self: end; display: grid; gap: 14px; }
+  .card p { color: var(--muted); font-size: 1.02rem; }
+  .card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: .95rem; color: rgba(245,240,236,.85); }
+  .card li::before { content: "— "; color: var(--acc); }
+  .track-nav { display: flex; gap: 10px; justify-content: flex-end; margin-top: 22px; }
+  .track-nav button { width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(245,240,236,.1); color: var(--paper); display: grid; place-items: center; cursor: pointer; transition: background .2s ease; }
+  .track-nav button:hover { background: rgba(245,240,236,.22); }
+  .track-nav svg { width: 18px; height: 18px; }
+
+  /* Manifesto: parole che si accendono (come le pagine iPhone) */
+  .manifesto { padding-block: clamp(90px, 12vw, 160px); }
+  .manifesto .big { font-size: clamp(1.8rem, 4.4vw, 4rem); font-weight: 600; letter-spacing: -0.035em; line-height: 1.12; max-width: 24ch; }
+  .manifesto .big .w { display: inline-block; opacity: .16; transition: opacity .3s ease; }
+  .manifesto .big .w.on { opacity: 1; }
+  .manifesto .big .w.hot.on { background: linear-gradient(92deg, #FF3D1E, #FFB300); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .manifesto .src { margin-top: 26px; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .numbers { margin-top: clamp(64px, 9vw, 120px); display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .num b { display: block; font-weight: 700; font-size: clamp(3rem, 6vw, 5.6rem); letter-spacing: -0.05em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .num b small { font-size: .42em; margin-left: .06em; letter-spacing: -0.02em; }
+  .num span { display: block; margin-top: 10px; color: var(--muted); font-size: 1rem; max-width: 20ch; }
+
+  /* Come funziona */
+  .how { padding-block: clamp(90px, 12vw, 160px); background: var(--bg-2); }
+  .how .head { display: grid; gap: 16px; max-width: 760px; margin-bottom: clamp(40px, 6vw, 72px); }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .step { border-top: 1px solid var(--line); padding-top: 26px; display: grid; gap: 14px; align-content: start; }
+  .step .n { font-weight: 800; font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -0.06em; line-height: 1; }
+  .step h3 { font-size: 1.5rem; }
+  .step p { color: var(--muted); }
+  .step .meta { font-size: .82rem; color: var(--muted); letter-spacing: .04em; border-top: 1px dashed var(--line); padding-top: 12px; margin-top: 4px; }
+
+  /* Lavora con noi */
+  .join { position: relative; overflow: hidden; padding-block: clamp(100px, 13vw, 170px); }
+  .join canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .join .wrap { position: relative; display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+  .join .lede { margin-top: 18px; max-width: 46ch; }
+  .join ul { margin: 28px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+  .join li { display: flex; gap: 12px; align-items: flex-start; color: rgba(245,240,236,.9); }
+  .join li svg { width: 22px; height: 22px; flex: none; color: var(--amber); margin-top: 2px; }
+  .join-card { background: rgba(14,11,10,.8); border: 1px solid var(--line); border-radius: 28px; padding: clamp(24px, 3vw, 40px); display: grid; gap: 16px; backdrop-filter: blur(10px); }
+  .join-card .big { font-weight: 700; font-size: clamp(1.8rem, 3.2vw, 2.6rem); letter-spacing: -0.04em; line-height: 1; }
+  .join-card p { color: var(--muted); }
+
+  /* Contatti */
+  .contact { padding-block: clamp(90px, 12vw, 160px); }
+  .contact .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .contact h2 { font-size: clamp(2.8rem, 7vw, 6.4rem); }
+  .cinfo { display: grid; gap: 22px; margin-top: 34px; }
+  .cinfo .k { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 4px; font-weight: 600; }
+  .cinfo .v { font-size: 1.25rem; font-weight: 500; text-decoration: none; letter-spacing: -0.01em; }
+  .cinfo .v:hover { color: var(--ember); }
+  .socials { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+  .socials a { text-decoration: none; font-size: .84rem; padding: 9px 14px; border-radius: 999px; background: rgba(245,240,236,.08); transition: background .2s ease; }
+  .socials a:hover { background: rgba(245,240,236,.18); }
+  form.panel { background: var(--bg-3); border-radius: 28px; padding: clamp(22px, 3vw, 36px); display: grid; gap: 16px; }
+  .field { display: grid; gap: 6px; }
+  .field label { font-size: .86rem; font-weight: 600; color: rgba(245,240,236,.9); }
+  .field input, .field select, .field textarea { font: inherit; font-size: 1rem; padding: 14px 16px; border-radius: 12px; border: 1px solid transparent; background: rgba(245,240,236,.07); color: var(--paper); width: 100%; transition: border-color .2s ease, background .2s ease; }
+  .field input::placeholder, .field textarea::placeholder { color: rgba(158,147,141,.8); }
+  .field textarea { min-height: 110px; resize: vertical; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--ember); background: rgba(245,240,236,.1); }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .legal { font-size: .8rem; color: var(--muted); }
+  .legal a { color: inherit; }
+  .sent { display: none; background: rgba(255,106,0,.12); border: 1px solid rgba(255,106,0,.4); border-radius: 12px; padding: 14px 16px; font-weight: 600; }
+  .sent.show { display: block; }
+  .demo { font-size: .74rem; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 10px; }
+
+  /* Footer */
+  .site-footer { border-top: 1px solid var(--line); padding-block: 36px calc(36px + env(safe-area-inset-bottom, 0px)); color: var(--muted); font-size: .84rem; }
+  .site-footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between; }
+  .site-footer nav { display: flex; flex-wrap: wrap; gap: 20px; }
+  .site-footer nav a { text-decoration: none; color: var(--muted); }
+  .site-footer nav a:hover { color: var(--paper); }
+  .site-footer .piva { flex-basis: 100%; font-size: .76rem; }
+
+  /* Reveal (solo sotto la piega) */
+  body.js [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+  body.js [data-reveal].in { opacity: 1; transform: none; }
+  body.js [data-stagger] > * { opacity: 0; transform: translateY(22px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  body.js [data-stagger].in > * { opacity: 1; transform: none; }
+  body.js [data-stagger].in > :nth-child(2) { transition-delay: .1s; }
+  body.js [data-stagger].in > :nth-child(3) { transition-delay: .2s; }
+  body.js [data-stagger].in > :nth-child(4) { transition-delay: .3s; }
+  body.js [data-stagger].in > :nth-child(5) { transition-delay: .4s; }
+
+  @media (max-width: 1000px) {
+    .nav { display: none; }
+    .top-phone span { display: none; }
+    .burger { display: inline-flex; }
+    .stage .wrap { grid-template-columns: 1fr; gap: 24px; align-content: center; }
+    .stage h2 { font-size: clamp(2rem, 8vw, 3.2rem); }
+    .bill { max-width: 420px; padding: 20px; }
+    .join .wrap, .contact .wrap { grid-template-columns: 1fr; }
+    .numbers { grid-template-columns: repeat(2, 1fr); }
+    .steps { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 17px; }
+    .top .btn-red { display: none; }
+    .hero { padding-top: calc(96px + env(safe-area-inset-top, 0px)); padding-bottom: 88px; }
+    .hero-ctas { flex-direction: column; width: 100%; }
+    .hero-ctas .btn { width: 100%; }
+    .hero-tap { display: none; }
+    .pin { height: 240vh; }
+    .bill .row { font-size: .9rem; padding: 10px; }
+    .bill .row small { display: none; }
+    .insight { margin-top: 16px; }
+    .stage .lede { font-size: 1rem; margin-top: 10px; }
+    .row2 { grid-template-columns: 1fr; }
+    .numbers { grid-template-columns: 1fr; gap: 24px; }
+    .card { min-height: 460px; padding: 24px; }
+  }
+  @media (max-height: 640px) and (max-width: 1000px) {
+    .bill .tot, .bill .note { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .hero .eyebrow, .hero h1, .hero .lede, .hero-ctas, .hero-hint i::after { animation: none; }
+    body.js [data-reveal], body.js [data-stagger] > * { opacity: 1; transform: none; transition: none; }
+    .manifesto .big .w { opacity: 1; }
+    .card, .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-berry" viewBox="0 0 24 24">
+      <path d="M12 22.5c-4.6-2.4-8.5-6.6-8.5-11.2A8.5 8.5 0 0 1 12 3.5a8.5 8.5 0 0 1 8.5 7.8c0 4.6-3.9 8.8-8.5 11.2z" fill="#D82E00"/>
+      <path d="M12 3.5c-1.2-1.5-3.2-2-5-1.4 1.1 1 2.6 1.5 4.1 1.3M12 3.5c1.2-1.5 3.2-2 5-1.4-1.1 1-2.6 1.5-4.1 1.3" fill="none" stroke="#2E9E5B" stroke-width="1.8" stroke-linecap="round"/>
+      <g fill="#FFD9D0"><circle cx="9" cy="10" r=".9"/><circle cx="14.5" cy="9" r=".9"/><circle cx="12" cy="14" r=".9"/><circle cx="8.5" cy="15.5" r=".9"/><circle cx="15.5" cy="15" r=".9"/></g>
+    </symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-l" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3h3l1.7 4.3-2.2 1.6a12 12 0 0 0 6 6l1.6-2.2L21 14.4v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.2 2 2 0 0 1 6.6 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.3-3.8A8 8 0 1 1 8.2 19L4 20z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9.5 8.5c0 3 3 6 6 6l1-1.5-2-1-1 .8a5 5 0 0 1-2.3-2.3l.8-1-1-2-1.5 1z" fill="currentColor"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor" opacity=".18"/><path d="M7 12.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#hero" aria-label="J@M — home">J<span class="at">@</span>M <svg class="berry" aria-hidden="true"><use href="#i-berry"/></svg></a>
+    <nav class="nav" aria-label="Principale">
+      <a href="#bolletta">Energia</a>
+      <a href="#sole">Fotovoltaico</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#manifesto">Chi siamo</a>
+      <a href="#come-funziona">Come funziona</a>
+      <a href="#lavora-con-noi">Lavora con noi</a>
+    </nav>
+    <div class="top-actions">
+      <a class="top-phone" href="tel:02898094"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>02 898094</span></a>
+      <a class="btn btn-red" href="#contatti">Richiedi una consulenza</a>
+      <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu"><svg aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+<nav class="menu" id="menu" aria-label="Menu">
+  <button class="burger close" id="menuClose" aria-label="Chiudi il menu"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+  <a href="#bolletta">Energia</a>
+  <a href="#sole">Fotovoltaico</a>
+  <a href="#servizi">Servizi</a>
+  <a href="#manifesto">Chi siamo</a>
+  <a href="#come-funziona">Come funziona</a>
+  <a href="#lavora-con-noi">Lavora con noi</a>
+  <a href="#contatti">Contatti</a>
+</nav>
+
+<main>
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <p class="eyebrow">Consulenza per casa, azienda e condominio · Milano, dal 2001</p>
+      <h1 id="hero-title">
+        <span>Un solo consulente per</span>
+        <span class="word-slot" id="wordSlot"><span class="fallback grad" id="wordFallback">luce e gas.</span><span class="sr-only" id="wordSr">luce e gas, fotovoltaico, telefonia, noleggio auto e sito web.</span></span>
+      </h1>
+      <p class="lede">Leggiamo le tue bollette e i tuoi contratti, ti mostriamo in euro cosa cambia e seguiamo la pratica fino alla fine. Gratis, senza impegno, con una persona che risponde al telefono.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" data-spark href="#contatti">Richiedi una consulenza gratuita</a>
+        <a class="link" href="https://api.whatsapp.com/send?phone=+3902898094" rel="noopener">Scrivici su WhatsApp <svg aria-hidden="true"><use href="#i-chev"/></svg></a>
+      </div>
+    </div>
+    <p class="hero-hint"><i></i> Scorri</p>
+    <p class="hero-tap">Clicca per far esplodere</p>
+  </section>
+
+  <!-- Capitolo 1: la bolletta -->
+  <section class="pin" id="bolletta" aria-labelledby="bill-title">
+    <div class="stage" id="billStage">
+      <div class="wrap">
+        <div>
+          <p class="eyebrow fx" data-fx="t" data-in="0">Luce e gas</p>
+          <h2 id="bill-title" class="fx" data-fx="t" data-in="0.02">La tua bolletta, letta da chi la capisce.</h2>
+          <p class="lede fx" data-fx="t" data-in="0.06" data-out="0.5">Una bolletta ha quattro voci. Solo una dipende dal fornitore: la <b style="color:var(--paper)">materia energia</b>, circa metà del totale. Le altre sono uguali per tutti. Noi lavoriamo su quella.</p>
+          <div class="insight fx" data-fx="t" data-in="0.56">
+            <b><span class="grad">≈ 50%</span> della bolletta</b>
+            <span>è la sola parte che si può trattare. Su quella confrontiamo le offerte e ti diciamo, in euro all'anno, cosa cambia.</span>
+          </div>
+        </div>
+        <div class="bill" id="bill" aria-label="Schema di una bolletta della luce">
+          <div class="scan" id="scan"></div>
+          <div class="bh"><b>Bolletta luce</b><span>quote indicative sul totale</span></div>
+          <div class="row key" data-at="0.28"><div>Spesa per la materia energia<small>l'unica voce che cambia da fornitore a fornitore</small></div><span class="pct">≈ 50%</span><span class="tag">Qui si risparmia</span></div>
+          <div class="row" data-at="0.40"><div>Trasporto e gestione del contatore<small>tariffa regolata, uguale per tutti</small></div><span class="pct">≈ 18%</span></div>
+          <div class="row" data-at="0.50"><div>Oneri di sistema<small>stabiliti dall'Autorità</small></div><span class="pct">≈ 12%</span></div>
+          <div class="row" data-at="0.58"><div>Imposte e IVA<small>accise e IVA</small></div><span class="pct">≈ 20%</span></div>
+          <div class="tot"><span>Totale</span><span>100%</span></div>
+          <p class="note">Ripartizione indicativa per una fornitura domestica; le quote reali variano con consumi e periodo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capitolo 2: il sole -->
+  <section class="pin sun-stage" id="sole" aria-labelledby="sun-title">
+    <div class="stage">
+      <div class="orb fx" id="orb"></div>
+      <div class="horizon" aria-hidden="true"></div>
+      <div class="sun-copy">
+        <p class="eyebrow fx" data-fx="s" data-in="0.22">Fotovoltaico ed efficientamento</p>
+        <h2 id="sun-title" class="fx" data-fx="s" data-in="0.26">Il sole lavora per te.</h2>
+        <p class="lede fx" data-fx="s" data-in="0.34">Impianto, accumulo, pompa di calore, colonnina. Progettiamo, installiamo e gestiamo le pratiche con GSE e detrazioni. Tu vedi solo il costo netto.</p>
+        <div class="sun-list">
+          <span class="fx" data-fx="s" data-in="0.46">Sopralluogo gratuito</span>
+          <span class="fx" data-fx="s" data-in="0.52">Con o senza accumulo</span>
+          <span class="fx" data-fx="s" data-in="0.58">Casa, condominio, azienda</span>
+          <span class="fx" data-fx="s" data-in="0.64">Incentivi calcolati nel preventivo</span>
+        </div>
+        <a class="btn btn-primary fx" data-fx="s" data-in="0.72" data-spark href="#contatti" style="margin-top:10px">Richiedi un sopralluogo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="servizi" aria-labelledby="serv-title">
+    <div class="wrap">
+      <div class="services-head" data-reveal>
+        <p class="eyebrow">Servizi</p>
+        <h2 id="serv-title">Cinque servizi. Un referente.</h2>
+        <p class="lede">Tutto quello che paghi ogni mese, gestito da chi lo fa di mestiere. Scegli quello che ti serve oggi: gli altri restano a portata di telefono.</p>
+      </div>
+      <div class="track" id="track" data-stagger>
+        <a class="card" href="#contatti" data-svc="0" style="--acc:#FF6A00">
+          <div class="k"><span>Casa · Azienda · Condominio</span><b>01</b></div>
+          <div class="body">
+            <h3>Luce e gas</h3>
+            <p>Confrontiamo la tua bolletta con le offerte aggiornate. Se esce di meglio, sei il primo a saperlo.</p>
+            <ul><li>Attivazioni, volture, subentri, allacci</li><li>Energia verde certificata inclusa</li></ul>
+          </div>
+          <span class="link">Parla con un consulente <svg aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </a>
+        <a class="card" href="#contatti" data-svc="1" style="--acc:#FFB300">
+          <div class="k"><span>Casa · Condominio · Azienda</span><b>02</b></div>
+          <div class="body">
+            <h3>Fotovoltaico</h3>
+            <p>Impianto, accumulo, pompa di calore, colonnina. Pratiche e incentivi li gestiamo noi.</p>
+            <ul><li>Sopralluogo e preventivo gratuiti</li><li>Costo netto già calcolato</li></ul>
+          </div>
+          <span class="link">Richiedi un sopralluogo <svg aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </a>
+        <a class="card" href="#contatti" data-svc="2" style="--acc:#FF3D71">
+          <div class="k"><span>Casa · Azienda</span><b>03</b></div>
+          <div class="body">
+            <h3>Telefonia e internet</h3>
+            <p>Fibra, mobile e linee fisse. Per le aziende anche IoT e M2M: oggetti connessi che lavorano per te.</p>
+            <ul><li>Fibra e mobile senza limiti</li><li>Centralini e SIM dati</li></ul>
+          </div>
+          <span class="link">Scopri le offerte <svg aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </a>
+        <a class="card" href="#contatti" data-svc="3" style="--acc:#D82E00">
+          <div class="k"><span>Azienda · Professionisti</span><b>04</b></div>
+          <div class="body">
+            <h3>Noleggio auto</h3>
+            <p>Medio e lungo termine, tutto incluso. Anche elettrico, per entrare in ZTL senza pensieri.</p>
+            <ul><li>Canone unico, zero burocrazia</li><li>Flotte aziendali su misura</li></ul>
+          </div>
+          <span class="link">Chiedi un preventivo <svg aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </a>
+        <a class="card" href="#contatti" data-svc="4" style="--acc:#FF8A5B">
+          <div class="k"><span>Azienda</span><b>05</b></div>
+          <div class="body">
+            <h3>Sito web e marketing</h3>
+            <p>Siti, SEO, social e campagne per farti trovare da chi ti cerca. Parliamo di clienti, non di tecnicismi.</p>
+            <ul><li>Siti veloci che si trovano su Google</li><li>Campagne e contenuti</li></ul>
+          </div>
+          <span class="link">Raccontaci il progetto <svg aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </a>
+      </div>
+      <div class="track-nav">
+        <button type="button" id="prevCard" aria-label="Scheda precedente"><svg aria-hidden="true"><use href="#i-arrow-l"/></svg></button>
+        <button type="button" id="nextCard" aria-label="Scheda successiva"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto" id="manifesto" aria-labelledby="man-title">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Chi siamo</p>
+      <h2 id="man-title" class="sr-only">Chi siamo</h2>
+      <p class="big" id="bigText" style="margin-top:18px">Non è la specie più forte a sopravvivere, e nemmeno la più intelligente. È quella più predisposta ai cambiamenti. Dal 2001 J@M mette testa, cuore e spirito d'iniziativa al servizio di famiglie, aziende e condomini: numeri da industria, attenzione da artigiani.</p>
+      <p class="src" data-reveal>Il manifesto J@M · Milano, Via Rutilia 2/4</p>
+      <div class="numbers" data-stagger>
+        <div class="num"><b><span data-count="25">0</span><small>anni</small></b><span>di consulenza, dal 2001</span></div>
+        <div class="num"><b><span data-count="5">0</span></b><span>servizi, un solo referente</span></div>
+        <div class="num"><b><span data-count="100">0</span><small>%</small></b><span>energia verde certificata, senza costi extra</span></div>
+        <div class="num"><b><span data-count="0">0</span><small>€</small></b><span>il costo della consulenza</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="come-funziona" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <p class="eyebrow">Come funziona</p>
+        <h2 id="how-title">Tre passaggi. Nessuna sorpresa.</h2>
+        <p class="lede">Non devi capire il mercato dell'energia o della telefonia: lo facciamo noi e te lo spieghiamo in parole semplici.</p>
+      </div>
+      <div class="steps" data-stagger>
+        <div class="step">
+          <span class="n grad">1</span>
+          <h3>Ci mandi le bollette</h3>
+          <p>Basta una foto da WhatsApp. Un consulente legge consumi, fasce orarie e condizioni del contratto attuale.</p>
+          <span class="meta">Tempo richiesto: 2 minuti</span>
+        </div>
+        <div class="step">
+          <span class="n grad">2</span>
+          <h3>Ricevi un confronto in euro</h3>
+          <p>Quanto paghi oggi, quanto pagheresti con la proposta J@M, quanto cambia in un anno. Se non conviene, te lo diciamo.</p>
+          <span class="meta">Entro 1 giorno lavorativo</span>
+        </div>
+        <div class="step">
+          <span class="n grad">3</span>
+          <h3>Attiviamo e ti seguiamo</h3>
+          <p>Gestiamo noi la pratica con il fornitore e ti aggiorniamo a ogni passaggio. Se esce un'offerta migliore, ti avvisiamo.</p>
+          <span class="meta">Nessuna interruzione della fornitura</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="join" id="lavora-con-noi" aria-labelledby="join-title">
+    <canvas id="emberCanvas" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div data-reveal>
+        <p class="eyebrow">Lavora con noi</p>
+        <h2 id="join-title" style="margin-top:14px">Hai abbastanza carattere?</h2>
+        <p class="lede">Cerchiamo consulenti con testa, cuore e spirito d'iniziativa. Ti diamo formazione, strumenti e cinque servizi da proporre ai tuoi clienti.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Formazione iniziale e affiancamento sul campo</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Portafoglio completo: energia, fotovoltaico, telefonia, auto, web</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Gestionale per caricare le pratiche e seguirle in tempo reale</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Piano provvigionale con bonus sugli obiettivi mensili</span></li>
+        </ul>
+      </div>
+      <div class="join-card" data-reveal>
+        <p class="big">Inizia l'avventura.</p>
+        <p>Raccontaci chi sei in due righe. Ti richiamiamo per un primo colloquio, senza impegno.</p>
+        <a class="btn btn-primary" data-spark data-join href="#contatti">Candidati</a>
+        <a class="link" href="https://www.linkedin.com/company/j-m-srl/" rel="noopener">Seguici su LinkedIn <svg aria-hidden="true"><use href="#i-chev"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contatti" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div data-reveal>
+        <p class="eyebrow">Contatti</p>
+        <h2 id="contact-title" style="margin-top:14px">Parliamone.</h2>
+        <div class="cinfo">
+          <div><span class="k">Telefono</span><a class="v" href="tel:02898094">02 898094</a></div>
+          <div><span class="k">WhatsApp</span><a class="v" href="https://api.whatsapp.com/send?phone=+3902898094" rel="noopener">Scrivi a J@M</a></div>
+          <div><span class="k">Email</span><a class="v" href="mailto:jam@jam-srl.it">jam@jam-srl.it</a></div>
+          <div><span class="k">Sede</span><a class="v" href="https://goo.gl/maps/fMUuxLyYvvjXLSaB6" rel="noopener">Via Rutilia 2/4, 20141 Milano</a></div>
+          <div><span class="k">Seguici</span>
+            <div class="socials">
+              <a href="https://www.linkedin.com/company/j-m-srl/" rel="noopener">LinkedIn</a>
+              <a href="https://www.instagram.com/jamsrl/" rel="noopener">Instagram</a>
+              <a href="https://www.facebook.com/jam.srl" rel="noopener">Facebook</a>
+              <a href="https://www.tiktok.com/@jampassion" rel="noopener">TikTok</a>
+              <a href="https://vimeo.com/jamsrl" rel="noopener">Vimeo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form class="panel" id="contactForm" novalidate data-reveal>
+        <div class="field"><label for="c-nome">Nome e cognome (o ragione sociale)</label><input id="c-nome" name="nome" type="text" autocomplete="name" placeholder="Es. Maria Rossi" required></div>
+        <div class="row2">
+          <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="c-tel">Telefono</label><input id="c-tel" name="telefono" type="tel" autocomplete="tel" placeholder="3xx xxx xxxx" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="c-profilo">Sono</label>
+            <select id="c-profilo" name="profilo"><option>Un privato</option><option>Un'azienda o professionista</option><option>Un amministratore di condominio</option><option>Voglio candidarmi come consulente</option></select>
+          </div>
+          <div class="field"><label for="c-servizio">Mi interessa</label>
+            <select id="c-servizio" name="servizio"><option>Luce e gas</option><option>Fotovoltaico / efficientamento</option><option>Telefonia e internet</option><option>Noleggio auto</option><option>Sito web e marketing</option><option>Non so, voglio un confronto</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="c-msg">Messaggio (facoltativo)</label><textarea id="c-msg" name="messaggio" placeholder="Es. Ho due bollette luce e una gas, vorrei capire se sto pagando troppo."></textarea></div>
+        <button class="btn btn-red" data-spark type="submit">Invia la richiesta</button>
+        <p class="sent" id="sent" role="status">Ricevuto! Ti richiamiamo entro un giorno lavorativo.</p>
+        <p class="legal">Inviando accetti la <a href="https://www.iubenda.com/privacy-policy/91688595" rel="noopener">privacy policy</a>. Niente newsletter, niente pubblicità: solo la risposta alla tua richiesta.</p>
+        <p class="demo">Il pulsante apre il tuo programma di posta con la richiesta già compilata.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a class="logo" href="#hero">J<span class="at">@</span>M <svg class="berry" aria-hidden="true"><use href="#i-berry"/></svg></a>
+    <nav aria-label="Footer">
+      <a href="#servizi">Servizi</a><a href="#manifesto">Chi siamo</a><a href="#lavora-con-noi">Lavora con noi</a>
+      <a href="https://www.iubenda.com/privacy-policy/91688595" rel="noopener">Privacy</a>
+      <a href="https://www.iubenda.com/privacy-policy/91688595/cookie-policy" rel="noopener">Cookie</a>
+    </nav>
+    <span class="piva">© J@M srl · Via Rutilia 2/4, 20141 Milano · P.IVA 13329170156 · mettici passione</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var body = document.body; body.classList.add("js");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var fine = window.matchMedia("(pointer: fine)").matches;
+  var isMobile = window.matchMedia("(max-width: 700px)").matches;
+  var clamp = function (v, a, b) { return Math.max(a, Math.min(b, v)); };
+  var ease = function (t) { return t < 0 ? 0 : t > 1 ? 1 : 1 - Math.pow(1 - t, 3); };
+
+  /* ---------- HERO: titolo di particelle che esplode e si ricompone ---------- */
+  var WORDS = ["luce e gas.", "fotovoltaico.", "telefonia.", "noleggio auto.", "sito web."];
+  var PALETTE = ["#FF3D1E", "#FF6A00", "#FFB300", "#FFF1E0"];
+  var WEIGHTS = [0.42, 0.34, 0.17, 0.07];
+  var hero = document.getElementById("hero"), canvas = document.getElementById("heroCanvas"), slot = document.getElementById("wordSlot");
+  var fallback = document.getElementById("wordFallback"), sr = document.getElementById("wordSr");
+  var ctx = canvas.getContext("2d", { alpha: false });
+  var off = document.createElement("canvas"), octx = off.getContext("2d", { willReadFrequently: true });
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0, N = isMobile ? 1800 : 3600, STEP = isMobile ? 3 : 4, SIZE = isMobile ? 1.7 : 2.1;
+  var parts = [], mouse = { x: -9999, y: -9999 };
+  var wordIx = 0, state = "form", stateT = 0, running = true, raf = 0, ready = false;
+  var HOLD = 2700, FORM = 1300, EXPLODE = 800;
+
+  function pickColor() { var r = Math.random(), acc = 0; for (var i = 0; i < WEIGHTS.length; i++) { acc += WEIGHTS[i]; if (r <= acc) return i; } return 0; }
+  function resize() {
+    var r = hero.getBoundingClientRect(); W = Math.max(1, Math.round(r.width)); H = Math.max(1, Math.round(r.height));
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = "#050403"; ctx.fillRect(0, 0, W, H);
+  }
+  function sample(word) {
+    var s = slot.getBoundingClientRect(), hr = hero.getBoundingClientRect();
+    var maxW = Math.max(40, s.width), maxH = Math.max(30, s.height), fs = maxH * 0.98;
+    off.width = Math.ceil(maxW); off.height = Math.ceil(maxH);
+    var font = function (px) { return "800 " + px + "px Geist, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"; };
+    octx.font = font(fs); var w = octx.measureText(word).width;
+    if (w > maxW * 0.96) { fs = fs * (maxW * 0.96 / w); octx.font = font(fs); w = octx.measureText(word).width; }
+    octx.clearRect(0, 0, off.width, off.height); octx.fillStyle = "#fff"; octx.textBaseline = "alphabetic";
+    octx.fillText(word, Math.round((maxW - w) / 2), Math.round(maxH * 0.8));
+    var d = octx.getImageData(0, 0, off.width, off.height).data, pts = [];
+    var ox = s.left - hr.left, oy = s.top - hr.top;
+    for (var y = 0; y < off.height; y += STEP) for (var x = 0; x < off.width; x += STEP) if (d[(y * off.width + x) * 4 + 3] > 120) pts.push(x + ox, y + oy);
+    return pts;
+  }
+  function makeParts() { parts = []; for (var i = 0; i < N; i++) parts.push({ x: Math.random() * W, y: Math.random() * H, vx: 0, vy: 0, tx: 0, ty: 0, c: pickColor(), s: SIZE, a: 1, dust: false }); }
+  function assign(word) {
+    var pts = sample(word), n = pts.length / 2;
+    fallback.textContent = word; sr.textContent = word;
+    var k = Math.max(1, Math.ceil(n / N));
+    for (var i = 0; i < N; i++) {
+      var p = parts[i], idx = (i * k) % n;
+      if (i * k < n) { p.tx = pts[idx * 2] + (Math.random() - .5); p.ty = pts[idx * 2 + 1] + (Math.random() - .5); p.dust = false; p.s = SIZE; p.a = 1; }
+      else { p.tx = Math.random() * W; p.ty = Math.random() * H; p.dust = true; p.s = SIZE * 0.55; p.a = 0.22; }
+    }
+  }
+  function explode() {
+    var cx = 0, cy = 0, n = 0, i, p;
+    for (i = 0; i < N; i++) if (!parts[i].dust) { cx += parts[i].x; cy += parts[i].y; n++; }
+    cx /= (n || 1); cy /= (n || 1);
+    for (i = 0; i < N; i++) {
+      p = parts[i]; var dx = p.x - cx, dy = p.y - cy, d = Math.sqrt(dx * dx + dy * dy) || 1, f = p.dust ? 1.5 : (6 + Math.random() * 14);
+      p.vx = (dx / d) * f + (Math.random() - .5) * 7; p.vy = (dy / d) * f + (Math.random() - .5) * 7;
+    }
+    state = "explode"; stateT = performance.now();
+  }
+  function step(now) {
+    if (!running) return; raf = requestAnimationFrame(step);
+    if (state === "form" && now - stateT > FORM) { state = "hold"; stateT = now; }
+    else if (state === "hold" && now - stateT > HOLD && !reduce) explode();
+    else if (state === "explode" && now - stateT > EXPLODE) { wordIx = (wordIx + 1) % WORDS.length; assign(WORDS[wordIx]); state = "form"; stateT = now; }
+    ctx.globalCompositeOperation = "source-over";
+    ctx.fillStyle = state === "explode" ? "rgba(5,4,3,0.26)" : "rgba(5,4,3,0.5)"; ctx.fillRect(0, 0, W, H);
+    ctx.globalCompositeOperation = "lighter";
+    var mx = mouse.x, my = mouse.y, R = 120, R2 = R * R, i, p;
+    for (i = 0; i < N; i++) {
+      p = parts[i];
+      if (state === "explode") { p.vx *= 0.955; p.vy *= 0.955; p.x += p.vx; p.y += p.vy; }
+      else {
+        var k = p.dust ? 0.02 : 0.08;
+        p.vx = (p.vx + (p.tx - p.x) * k) * 0.76; p.vy = (p.vy + (p.ty - p.y) * k) * 0.76;
+        if (state === "hold" && !p.dust) { p.vx += (Math.random() - .5) * 0.45; p.vy += (Math.random() - .5) * 0.45; }
+        var dx = p.x - mx, dy = p.y - my, d2 = dx * dx + dy * dy;
+        if (d2 < R2) { var d = Math.sqrt(d2) || 1, f = (R - d) / R * 4.5; p.vx += (dx / d) * f; p.vy += (dy / d) * f; }
+        p.x += p.vx; p.y += p.vy;
+      }
+    }
+    for (var c = 0; c < PALETTE.length; c++) { ctx.fillStyle = PALETTE[c]; for (i = 0; i < N; i++) { p = parts[i]; if (p.c !== c) continue; ctx.globalAlpha = p.a; ctx.fillRect(p.x, p.y, p.s, p.s); } }
+    ctx.globalAlpha = 1;
+  }
+  function start() { resize(); makeParts(); assign(WORDS[0]); state = "form"; stateT = performance.now(); ready = true; if (!raf) raf = requestAnimationFrame(step); }
+  hero.addEventListener("pointermove", function (e) { var r = hero.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+  hero.addEventListener("pointerleave", function () { mouse.x = -9999; mouse.y = -9999; });
+  hero.addEventListener("click", function (e) { if (e.target.closest("a, button")) return; if (ready && state !== "explode") explode(); });
+  var rT; window.addEventListener("resize", function () { clearTimeout(rT); rT = setTimeout(function () { if (ready) { resize(); assign(WORDS[wordIx]); } }, 150); });
+  function setRun(on) { running = on; if (on && ready && !raf) raf = requestAnimationFrame(step); if (!on) { cancelAnimationFrame(raf); raf = 0; } }
+  new IntersectionObserver(function (en) { setRun(en[0].isIntersecting && !document.hidden); }).observe(hero);
+  document.addEventListener("visibilitychange", function () { setRun(!document.hidden); });
+  var fontsReady = (document.fonts && document.fonts.load) ? document.fonts.load("800 100px Geist") : Promise.resolve();
+  var started = false; function once() { if (!started) { started = true; start(); } }
+  fontsReady.then(once, once); setTimeout(once, 1800);
+
+  /* ---------- Header / menu ---------- */
+  var top = document.getElementById("top");
+  var burger = document.getElementById("burger"), menu = document.getElementById("menu"), menuClose = document.getElementById("menuClose");
+  function setMenu(o) { menu.classList.toggle("open", o); burger.setAttribute("aria-expanded", o ? "true" : "false"); body.style.overflow = o ? "hidden" : ""; }
+  burger.addEventListener("click", function () { setMenu(true); });
+  menuClose.addEventListener("click", function () { setMenu(false); });
+  menu.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
+
+  /* ---------- Scintille sui bottoni principali ---------- */
+  function sparks(x, y, n) {
+    if (reduce) return;
+    var cols = ["#FF3D1E", "#FF6A00", "#FFB300", "#FFF1E0"];
+    for (var i = 0; i < n; i++) {
+      var s = document.createElement("span"); s.className = "spark"; s.style.left = x + "px"; s.style.top = y + "px"; s.style.background = cols[i % cols.length];
+      document.body.appendChild(s);
+      var ang = Math.random() * Math.PI * 2, dist = 30 + Math.random() * 80, dur = 450 + Math.random() * 400;
+      s.animate([{ transform: "translate(-50%,-50%) scale(1)", opacity: 1 }, { transform: "translate(" + (Math.cos(ang) * dist) + "px," + (Math.sin(ang) * dist) + "px) scale(0)", opacity: 0 }], { duration: dur, easing: "cubic-bezier(.2,.7,.2,1)" }).onfinish = function () { this.effect.target.remove(); };
+    }
+  }
+  document.querySelectorAll("[data-spark]").forEach(function (b) { b.addEventListener("click", function (e) { sparks(e.clientX, e.clientY, 26); }); });
+
+  /* ---------- Capitoli pinnati: progresso di scroll -> scena ---------- */
+  var billSec = document.getElementById("bolletta"), sunSec = document.getElementById("sole");
+  var scan = document.getElementById("scan"), bill = document.getElementById("bill"), rows = bill.querySelectorAll(".row");
+  var orb = document.getElementById("orb");
+  var fxT = billSec.querySelectorAll("[data-fx='t']"), fxS = sunSec.querySelectorAll("[data-fx='s']");
+  function progress(sec) { var r = sec.getBoundingClientRect(), vh = window.innerHeight; return clamp(-r.top / (r.height - vh), 0, 1); }
+  function fade(el, p, a, b, dir) {
+    var t = ease((p - a) / 0.08), o = t;
+    if (b !== undefined) o = Math.min(t, 1 - ease((p - b) / 0.08));
+    el.style.opacity = o; el.style.transform = "translateY(" + ((1 - o) * (dir || 18)) + "px)";
+  }
+  function scene() {
+    var vh = window.innerHeight;
+    // Capitolo 1
+    var p = progress(billSec);
+    fxT.forEach(function (el) { fade(el, p, +el.dataset.in, +el.dataset.out); });
+    var bh = bill.offsetHeight, sp = clamp((p - 0.2) / 0.45, 0, 1);
+    scan.style.opacity = (p > 0.2 && p < 0.68) ? 1 : 0; scan.style.top = (sp * bh) + "px";
+    rows.forEach(function (r) { r.classList.toggle("lit", p >= +r.dataset.at); });
+    var bp = clamp((p - 0.0) / 0.12, 0, 1), be = ease(bp);
+    bill.style.opacity = be; bill.style.transform = "translateY(" + ((1 - be) * 60) + "px) scale(" + (0.94 + be * 0.06) + ")";
+    if (p > 0.66) { bill.style.transform = "translateY(0) scale(" + (1 - clamp((p - 0.66) / 0.3, 0, 1) * 0.04) + ")"; }
+    // Capitolo 2
+    var q = progress(sunSec), qe = ease(clamp(q / 0.55, 0, 1));
+    orb.style.transform = "translate(-50%, -50%) translateY(" + ((1 - qe) * vh * 0.62) + "px) scale(" + (0.5 + qe * 0.6) + ")";
+    orb.style.opacity = 0.35 + qe * 0.65;
+    fxS.forEach(function (el) { fade(el, q, +el.dataset.in, undefined, 22); });
+  }
+  if (reduce) {
+    fxT.forEach(function (el) { el.style.opacity = 1; }); fxS.forEach(function (el) { el.style.opacity = 1; });
+    rows.forEach(function (r) { r.classList.add("lit"); }); orb.style.transform = "translate(-50%,-50%) scale(1.1)";
+    document.querySelectorAll(".pin").forEach(function (s) { s.style.height = "auto"; }); document.querySelectorAll(".pin .stage").forEach(function (s) { s.style.position = "relative"; s.style.height = "auto"; s.style.paddingBlock = "120px"; });
+  } else {
+    var ticking = false;
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(function () { scene(); manifesto(); topbar(); ticking = false; }); } }
+    window.addEventListener("scroll", onScroll, { passive: true }); window.addEventListener("resize", onScroll);
+    scene();
+  }
+  function topbar() { top.classList.toggle("solid", window.scrollY > 30); }
+  topbar();
+
+  /* ---------- Servizi: luce che segue il mouse, frecce, preselezione form ---------- */
+  var cards = document.querySelectorAll(".card"), cS = document.getElementById("c-servizio"), cP = document.getElementById("c-profilo");
+  cards.forEach(function (c) {
+    if (fine && !reduce) c.addEventListener("pointermove", function (e) { var r = c.getBoundingClientRect(); c.style.setProperty("--mx", ((e.clientX - r.left) / r.width * 100) + "%"); c.style.setProperty("--my", ((e.clientY - r.top) / r.height * 100) + "%"); });
+    c.addEventListener("click", function () { if (cS) cS.selectedIndex = +c.dataset.svc; });
+  });
+  var tr = document.getElementById("track");
+  document.getElementById("prevCard").addEventListener("click", function () { tr.scrollBy({ left: -400, behavior: "smooth" }); });
+  document.getElementById("nextCard").addEventListener("click", function () { tr.scrollBy({ left: 400, behavior: "smooth" }); });
+  var joinBtn = document.querySelector("[data-join]"); if (joinBtn) joinBtn.addEventListener("click", function () { if (cP) cP.selectedIndex = 3; });
+
+  /* ---------- Reveal ---------- */
+  var io = new IntersectionObserver(function (en) { en.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  document.querySelectorAll("[data-reveal], [data-stagger]").forEach(function (el) { io.observe(el); });
+
+  /* ---------- Manifesto: parole che si accendono ---------- */
+  var big = document.getElementById("bigText"), hot = ["testa,", "cuore", "spirito", "d'iniziativa", "cambiamenti."];
+  big.innerHTML = big.textContent.split(/\s+/).map(function (w) { return "<span class=\"w" + (hot.indexOf(w) !== -1 ? " hot" : "") + "\">" + w + "</span>"; }).join(" ");
+  var words = big.querySelectorAll(".w");
+  function manifesto() {
+    var vh = window.innerHeight, r = big.getBoundingClientRect();
+    var p = clamp((vh * 0.85 - r.top) / (r.height + vh * 0.3), 0, 1), cnt = Math.round(p * words.length);
+    for (var i = 0; i < words.length; i++) words[i].classList.toggle("on", i < cnt);
+  }
+  if (reduce) words.forEach(function (w) { w.classList.add("on"); }); else manifesto();
+
+  /* ---------- Numeri che contano ---------- */
+  var counted = false;
+  new IntersectionObserver(function (en) {
+    if (!en[0].isIntersecting || counted) return; counted = true;
+    document.querySelectorAll("[data-count]").forEach(function (el) {
+      var to = +el.dataset.count, t0 = performance.now(), dur = 1500;
+      (function tick(now) { var p = Math.min(1, (now - t0) / dur); el.textContent = Math.round(to * ease(p)); if (p < 1) requestAnimationFrame(tick); })(t0);
+    });
+  }, { threshold: 0.4 }).observe(document.querySelector(".numbers"));
+
+  /* ---------- Braci (Lavora con noi) ---------- */
+  var ec = document.getElementById("emberCanvas"), ectx = ec.getContext("2d"), join = document.getElementById("lavora-con-noi");
+  var embers = [], EW = 0, EH = 0, eRun = false, eRaf = 0;
+  function eResize() { var r = join.getBoundingClientRect(); EW = Math.round(r.width); EH = Math.round(r.height); ec.width = Math.round(EW * dpr); ec.height = Math.round(EH * dpr); ectx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  function eMake() { embers = []; for (var i = 0; i < (isMobile ? 80 : 200); i++) embers.push({ x: Math.random() * EW, y: Math.random() * EH, r: 0.8 + Math.random() * 2, v: 0.15 + Math.random() * 0.5, w: Math.random() * 6.28, c: PALETTE[pickColor()], a: 0.25 + Math.random() * 0.55 }); }
+  function eStep() {
+    if (eRun) eRaf = requestAnimationFrame(eStep);
+    ectx.clearRect(0, 0, EW, EH); ectx.globalCompositeOperation = "lighter";
+    for (var i = 0; i < embers.length; i++) { var p = embers[i]; p.y -= p.v; p.w += 0.02; p.x += Math.sin(p.w) * 0.3; if (p.y < -10) { p.y = EH + 10; p.x = Math.random() * EW; }
+      ectx.globalAlpha = p.a * (0.6 + 0.4 * Math.sin(p.w * 3)); ectx.fillStyle = p.c; ectx.beginPath(); ectx.arc(p.x, p.y, p.r, 0, 6.28); ectx.fill(); }
+    ectx.globalAlpha = 1;
+  }
+  eResize(); eMake();
+  new IntersectionObserver(function (en) { eRun = en[0].isIntersecting && !reduce; if (eRun && !eRaf) eRaf = requestAnimationFrame(eStep); if (!eRun) { cancelAnimationFrame(eRaf); eRaf = 0; } }).observe(join);
+  window.addEventListener("resize", function () { eResize(); eMake(); if (reduce) eStep(); });
+  if (reduce) eStep();
+
+  /* ---------- Form: apre la posta con la richiesta compilata ---------- */
+  var CONTACT_EMAIL = "jam@jam-srl.it";
+  var form = document.getElementById("contactForm"), sent = document.getElementById("sent");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); var ok = true;
+    form.querySelectorAll("[required]").forEach(function (el) { var bad = !el.value.trim() || (el.type === "email" && el.value.indexOf("@") === -1); el.style.borderColor = bad ? "#D82E00" : ""; if (bad) ok = false; });
+    if (!ok) { sent.textContent = "Controlla i campi evidenziati in rosso."; sent.classList.add("show"); return; }
+    var v = function (id) { return document.getElementById(id).value.trim(); };
+    var subject = "Richiesta dal sito J@M: " + v("c-servizio") + " (" + v("c-profilo") + ")";
+    var bodyTxt = "Nome: " + v("c-nome") + "
+Email: " + v("c-email") + "
+Telefono: " + v("c-tel") + "
+Sono: " + v("c-profilo") + "
+Mi interessa: " + v("c-servizio") + "
+
+" + (v("c-msg") || "(nessun messaggio)");
+    window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(bodyTxt);
+    sent.textContent = "Si apre la tua posta con la richiesta pronta: basta premere Invia. Se non si apre, scrivi a " + CONTACT_EMAIL + " o chiama lo 02 898094.";
+    sent.classList.add("show");
+  });
+})();
+</script>
+</body>
+</html>
